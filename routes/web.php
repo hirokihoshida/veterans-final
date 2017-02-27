@@ -16,3 +16,6 @@
 // });
 
 Route::get('/', 'HomeController@show');
+Route::get('/', 'homepage');
+
+

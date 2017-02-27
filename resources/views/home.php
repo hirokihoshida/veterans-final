@@ -6,7 +6,10 @@
 
 
 
-    <link rel="stylesheet" href="css/style.css">
+    <!--<link rel="stylesheet" type="text/css" href="/css/style.css"> -->
+    <link rel="stylesheet" href="{{ URL::asset('assets/css/style.css') }}">
+
+
 
 
 </head>
