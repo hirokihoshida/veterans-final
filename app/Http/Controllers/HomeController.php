@@ -30,9 +30,9 @@ class HomeController extends Controller
 
         if (Auth::attempt(['username' => $username, 'password' => $password])) {
             echo("success");
-//            return redirect()->intended('homepage');
+            return redirect()->intended('home');
         } else {
-            return Redirect::to('login');
+            return redirect()->intended('login');
         }
     }
 }
