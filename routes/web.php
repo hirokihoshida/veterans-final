@@ -15,7 +15,5 @@
 //     return view('home');
 // });
 
-Route::get('/', 'HomeController@show');
-Route::get('/', 'homepage');
-
-
+Route::get('/', 'HomeController@login');
+Route::post('/', 'HomeController@authenticate');

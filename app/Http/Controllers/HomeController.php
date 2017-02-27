@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 
 use DB;
 
@@ -19,5 +20,19 @@ class HomeController extends Controller
     	return view('home');
     }
 
+    public function login() {
+        return view('login');
+    }
 
+    public function authenticate(Request $request) {
+        $username = $request->input('username');
+        $password = $request->input('password');
+
+        if (Auth::attempt(['username' => $username, 'password' => $password])) {
+            echo("success");
+//            return redirect()->intended('homepage');
+        } else {
+            return Redirect::to('login');
+        }
+    }
 }
