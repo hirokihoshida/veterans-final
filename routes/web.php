@@ -11,10 +11,14 @@
 |
 */
 
+Route::get('/', 'HomeController@login');
+
+Route::post('/', 'HomeController@authenticate');
+
 Route::get('home', function () {
      return view('homepage');
 });
 
-Route::get('/', 'HomeController@login');
-Route::post('/', 'HomeController@authenticate');
-
+Route::get('/add', function() {
+     return view('addclient');
+});
