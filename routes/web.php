@@ -22,3 +22,5 @@ Route::get('home', function () {
 Route::get('/add', function() {
      return view('addclient');
 });
+
+Route::post('/add', 'DBController@addNewClient');
