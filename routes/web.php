@@ -20,7 +20,7 @@ Route::get('home', function () {
 });
 
 Route::get('/add', function() {
-     return view('addclient');
+     return view('addclient', ['added' => False]);
 });
 
 Route::post('/add', 'DBController@addNewClient');

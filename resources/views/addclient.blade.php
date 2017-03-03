@@ -25,8 +25,14 @@
     <body>
         <h1 id="AddNewClient" class="a">Add New Client</h1>
         <h3>Fill out all the fields to add a new veteran client to the database.</h3>
+
+        <div id="added" <?php if (!$added) echo "hidden"; ?>>
+            Client added successfully.
+        </div>
+
         <div id="form-container">
             <form method="post">
+                {{ csrf_field() }}
 
                 <div class="form-element">
                     <p class="text-field">First Name: </p><input class="text-field" type="text" name="first_name" required="required">
