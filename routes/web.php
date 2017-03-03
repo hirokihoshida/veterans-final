@@ -23,4 +23,8 @@ Route::get('/add', function() {
      return view('addclient');
 });
 
+Route::get('newclient', function () {
+    return view('newclient');
+});
+
 Route::post('/add', 'DBController@addNewClient');
