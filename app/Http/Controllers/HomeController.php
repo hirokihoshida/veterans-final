@@ -21,7 +21,7 @@ class HomeController extends Controller
     }
 
     public function login() {
-        return view('login');
+        return view('login', ['invalid' => False]);
     }
 
     public function authenticate(Request $request) {
@@ -32,7 +32,7 @@ class HomeController extends Controller
             echo("success");
             return redirect()->intended('home');
         } else {
-            return redirect()->intended('login');
+            return view('login', ['invalid' => True]);
         }
     }
 }

@@ -234,7 +234,11 @@ h6 { font-size: 14px; margin: 0 0 5px; padding: 0; }
 .col_w420 { width: 420px }
 .col_w280 { width: 280px }
 .col_allw280 {
-    float: left; width: 280px; margin-right: 30px }
+    text-decoration: none;
+    float: left; width: 280px;
+    margin-right: 30px;
+    color:black;
+}
 .col_w900_last { padding: 0; margin: 0; background: none; }
 .col_last { margin: 0; }
 

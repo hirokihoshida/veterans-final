@@ -77,7 +77,11 @@
         }
         input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2); }
 
-
+        #invalid {
+            text-align: center;
+            padding-top:30px;
+            text-size:45px;
+        }
 
     </style>
 
@@ -89,6 +93,7 @@
 <img src="/images/bc.jpeg" alt="Bergen County Seal" style="width:250px;height:228px;" id="image1">
 
 <div class="login">
+
     <h1>Login</h1>
     <form method="post">
         {{ csrf_field() }}
@@ -96,6 +101,10 @@
         <input type="password" name="password" placeholder="Password" required="required" />
         <button type="submit" class="btn btn-primary btn-block btn-large">Log In</button>
     </form>
+
+    <div id="invalid" <?php if (!$invalid) echo "hidden"; ?>>
+        INVALID USERNAME OR PASSWORD
+    </div>
 </div>
 
 </body>

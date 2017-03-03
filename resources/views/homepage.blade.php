@@ -19,37 +19,37 @@
         <div id="tooplate_content">
 
             <div class="col_w900">
-                <div class="col_allw280 fp_service_box">
-                    <div onclick="location.href='/add';" class="con_tit_01">Add New Client</div>
+                <a href='/add' class="col_allw280 fp_service_box">
+                    <div class="con_tit_01">Add New Client</div>
                     <img src="/images/Add-icon.png" alt="Image 08" />
                     <p>Create and add a new client and all of his veteran info to the database.</p>
-                </div>
+                </a>
 
-                <div class="col_allw280 fp_service_box">
+                <a href='/add' class="col_allw280 fp_service_box">
                     <div class="con_tit_01">List of Clients</div>
                     <img src="/images/timeline-list-grid-list-icon.png" alt="Image 15" />
                     <p>Table of information and data for all Bergen County Veterans Services clients. </p>
-                </div>
+                </a>
 
-                <div class="col_allw280 fp_service_box col_last">
+                <a href='/add' class="col_allw280 fp_service_box col_last">
                     <div class="con_tit_01">Notifications</div>
                     <img src="/images/Apps-Notifications-icon.png" alt="Image 16" />
                     <p>View updates for clients with overdue visits.</p>
-                </div>
+                </a>
 
                 <div class="cleaner h60"></div>
 
-                <div class="col_allw280 fp_service_box">
+                <a href='/add' class="col_allw280 fp_service_box">
                     <div class="con_tit_01">Report Generator</div>
                     <img src="/images/onebit_16.png" alt="Image 16" />
                     <p>Generate statistics reports for presentation.</p>
-                </div>
+                </a>
 
-                <div class="col_allw280 fp_service_box">
+                <a href='/add' class="col_allw280 fp_service_box">
                     <div class="con_tit_01">Data Search</div>
                     <img src="/images/search-icon.png" alt="Image 18" />
                     <p>Retrieve customized data on veterans from the database.</p>
-                </div>
+                </a>
 
 
                 <div class="cleaner"></div>
