@@ -17,7 +17,7 @@
     <script src='http://davidstutz.github.io/bootstrap-multiselect/js/bootstrap-multiselect.js'
             type='text/javascript'></script>
 
-
+<style>
     .indent-small {
     margin-left: 5px;
     }
@@ -54,7 +54,7 @@
     font-weight: 600;
     color: #777;
     }
-
+</style>
 
 </head>
 <body>
