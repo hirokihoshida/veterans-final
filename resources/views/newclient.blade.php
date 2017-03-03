@@ -61,7 +61,7 @@
 <div class='container'>
     <div class='panel panel-primary dialog-panel'>
         <div class='panel-heading'>
-            <h5>Almaguin Campground - Reservation</h5>
+            <h5>Bergen County Veterans Affairs Services - Add Client</h5>
         </div>
         <div class='panel-body'>
             <form class='form-horizontal' role='form'>
@@ -102,17 +102,17 @@
                     </div>
                 </div>
                 <div class='form-group'>
-                    <label class='control-label col-md-2 col-md-offset-2' for='id_adults'>Guests</label>
+                    <label class='control-label col-md-2 col-md-offset-2' for='id_adults'>Branch</label>
                     <div class='col-md-8'>
                         <div class='col-md-2'>
                             <div class='form-group internal'>
-                                <input class='form-control col-md-8' id='id_adults' placeholder='18+ years'
+                                <input class='form-control col-md-8' id='id_adults' placeholder='Branch of Service'
                                        type='number'>
                             </div>
                         </div>
                         <div class='col-md-3 indent-small'>
                             <div class='form-group internal'>
-                                <input class='form-control' id='id_children' placeholder='2-17 years' type='number'>
+                                <input class='form-control' id='id_children' placeholder='Years of Service' type='number'>
                             </div>
                         </div>
                         <div class='col-md-3 indent-small'>
@@ -140,6 +140,17 @@
                     </div>
                 </div>
                 <div class='form-group'>
+                    <label class='control-label col-md-2 col-md-offset-2' for='id_email'>Senior Citizenship</label>
+                    <div class='col-md-6'>
+                        <div class='form-group'>
+                            <div class='col-md-11'>
+                                <input class='form-control' id='id_citizenshipstatus' placeholder='Status' type='text'>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class='form-group'>
                     <label class='control-label col-md-2 col-md-offset-2' for='id_checkin'>Checkin</label>
                     <div class='col-md-8'>
                         <div class='col-md-3'>
@@ -162,23 +173,23 @@
                     </div>
                 </div>
                 <div class='form-group'>
-                    <label class='control-label col-md-2 col-md-offset-2' for='id_equipment'>Equipment type</label>
+                    <label class='control-label col-md-2 col-md-offset-2' for='id_equipment'>Branch</label>
                     <div class='col-md-8'>
                         <div class='col-md-3'>
                             <div class='form-group internal'>
                                 <select class='form-control' id='id_equipment'>
-                                    <option>Travel trailer</option>
-                                    <option>Fifth wheel</option>
-                                    <option>RV/Motorhome</option>
-                                    <option>Tent trailer</option>
-                                    <option>Pickup camper</option>
-                                    <option>Camper van</option>
+                                    <option>Army</option>
+                                    <option>Marines</option>
+                                    <option>Navy</option>
+                                    <option>Air Force</option>
+                                    <option>Coast Guard</option>
+                                    <option>Reserves</option>
                                 </select>
                             </div>
                         </div>
                         <div class='col-md-9'>
                             <div class='form-group internal'>
-                                <label class='control-label col-md-3' for='id_slide'>Slide-outs</label>
+                                <label class='control-label col-md-3' for='id_slide'>D12 Form</label>
                                 <div class='make-switch' data-off-label='NO' data-on-label='YES' id='id_slide_switch'>
                                     <input id='id_slide' type='checkbox' value='chk_hydro'>
                                 </div>
