@@ -101,28 +101,68 @@
                         </div>
                     </div>
                 </div>
+
                 <div class='form-group'>
-                    <label class='control-label col-md-2 col-md-offset-2' for='id_adults'>Branch</label>
-                    <div class='col-md-8'>
-                        <div class='col-md-2'>
-                            <div class='form-group internal'>
-                                <input class='form-control col-md-8' id='id_adults' placeholder='Branch of Service'
-                                       type='number'>
+                    <label class='control-label col-md-2 col-md-offset-2' for='id_email'>Age</label>
+                    <div class='col-md-2'>
+                        <div class='form-group'>
+                            <div class='col-md-11'>
+                                <input class='form-control' id='id_age' placeholder='Age' type='number'>
                             </div>
                         </div>
+
+                    </div>
+                </div>
+
+
+                <div class='form-group'>
+                    <label class='control-label col-md-2 col-md-offset-2' for='id_equipment'>Branch</label>
+                    <div class='col-md-8'>
+                        <div class='col-md-3'>
+                            <div class='form-group internal'>
+                                <select class='form-control' id='id_equipment'>
+                                    <option>Army</option>
+                                    <option>Marines</option>
+                                    <option>Navy</option>
+                                    <option>Air Force</option>
+                                    <option>Coast Guard</option>
+                                    <option>Reserves</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class='col-md-9'>
+                            <div class='form-group internal'>
+                                <label class='control-label col-md-3' for='id_slide'>D12 Form</label>
+                                <div class='make-switch' data-off-label='NO' data-on-label='YES' id='id_slide_switch'>
+                                    <input id='id_slide' type='checkbox' value='chk_hydro'>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+                <div class='form-group'>
+                    <label class='control-label col-md-2 col-md-offset-2' for='id_adults'></label>
+                    <div class='col-md-8'>
                         <div class='col-md-3 indent-small'>
                             <div class='form-group internal'>
                                 <input class='form-control' id='id_children' placeholder='Years of Service' type='number'>
                             </div>
                         </div>
-                        <div class='col-md-3 indent-small'>
-                            <div class='form-group internal'>
-                                <input class='form-control' id='id_children_free' placeholder='&lt; 2 years'
-                                       type='number'>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
+
+
+
+
+
+
                 <div class='form-group'>
                     <label class='control-label col-md-2 col-md-offset-2' for='id_email'>Contact</label>
                     <div class='col-md-6'>
@@ -139,6 +179,12 @@
                         </div>
                     </div>
                 </div>
+
+
+
+
+
+
                 <div class='form-group'>
                     <label class='control-label col-md-2 col-md-offset-2' for='id_email'>Senior Citizenship</label>
                     <div class='col-md-6'>
@@ -172,31 +218,7 @@
                         </div>
                     </div>
                 </div>
-                <div class='form-group'>
-                    <label class='control-label col-md-2 col-md-offset-2' for='id_equipment'>Branch</label>
-                    <div class='col-md-8'>
-                        <div class='col-md-3'>
-                            <div class='form-group internal'>
-                                <select class='form-control' id='id_equipment'>
-                                    <option>Army</option>
-                                    <option>Marines</option>
-                                    <option>Navy</option>
-                                    <option>Air Force</option>
-                                    <option>Coast Guard</option>
-                                    <option>Reserves</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class='col-md-9'>
-                            <div class='form-group internal'>
-                                <label class='control-label col-md-3' for='id_slide'>D12 Form</label>
-                                <div class='make-switch' data-off-label='NO' data-on-label='YES' id='id_slide_switch'>
-                                    <input id='id_slide' type='checkbox' value='chk_hydro'>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
                 <div class='form-group'>
                     <label class='control-label col-md-2 col-md-offset-2' for='id_service'>Required Service</label>
                     <div class='col-md-8'>
@@ -224,7 +246,7 @@
                 </div>
                 <div class='form-group'>
                     <div class='col-md-offset-4 col-md-3'>
-                        <button class='btn-lg btn-primary' type='submit'>Request Reservation</button>
+                        <button class='btn-lg btn-primary' type='submit'>Add New Client</button>
                     </div>
                     <div class='col-md-3'>
                         <button class='btn-lg btn-danger' style='float:right' type='submit'>Cancel</button>
