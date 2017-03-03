@@ -23,6 +23,7 @@
     }
     .form-group.internal {
     margin-bottom: 0;
+        padding-bottom: 0;
     }
     .dialog-panel {
     margin: 10px;
@@ -53,6 +54,7 @@
     label.control-label {
     font-weight: 600;
     color: #777;
+
     }
 </style>
 
@@ -147,14 +149,21 @@
 
 
                 <div class='form-group'>
-                    <label class='control-label col-md-2 col-md-offset-2' for='id_adults'></label>
+                    <label class='control-label col-md-2 col-md-offset-2' for='id_adults'>Years</label>
                     <div class='col-md-8'>
                         <div class='col-md-3 indent-small'>
                             <div class='form-group internal'>
-                                <input class='form-control' id='id_children' placeholder='Years of Service' type='number'>
+                                <input class='form-control' id='id_yearsofservice' placeholder='Years of Service' type='number'>
                             </div>
                         </div>
-
+                        <div class='col-md-8'>
+                            <div class='form-group internal'>
+                                <label class='control-label col-md-4' for='id_slide'>Valid ID Status</label>
+                                <div class='make-switch' data-off-label='NO' data-on-label='YES' id='id_slide_switch'>
+                                    <input id='id_slide' type='checkbox' value='chk_idstatus'>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -168,7 +177,69 @@
                     <div class='col-md-6'>
                         <div class='form-group'>
                             <div class='col-md-11'>
-                                <input class='form-control' id='id_email' placeholder='E-mail' type='text'>
+                                <input class='form-control' id='id_address' placeholder='Street Address' type='text'>
+                                <input class='form-control' id='id_city' placeholder='City' type='text'>
+                                    <select class='form-control' id='id_state'>
+                                        <option>New Jersey</option>
+                                        <option>Alabama</option>
+                                        <option>Alaska</option>
+                                        <option>Arizona</option>
+                                        <option>California</option>
+                                        <option>Colorado</option>
+                                        <option>Connecticut</option>
+                                        <option>Delaware</option>
+                                        <option>Florida</option>
+                                        <option>Georgia</option>
+                                        <option>Hawaii</option>
+                                        <option>Idaho</option>
+                                        <option>Illinois</option>
+                                        <option>Indiana</option>
+                                        <option>Iowa</option>
+                                        <option>Kansas</option>
+                                        <option>Kentucky</option>
+                                        <option>Louisiana</option>
+                                        <option>Maine</option>
+                                        <option>Maryland</option>
+                                        <option>Massachusetts</option>
+                                        <option>Michigan</option>
+                                        <option>Minnesota</option>
+                                        <option>Mississippi</option>
+                                        <option>Missouri</option>
+                                        <option>Montana</option>
+                                        <option>Nebraska</option>
+                                        <option>Nevada</option>
+                                        <option>New Hampshire</option>
+                                        <option>New Jersey</option>
+                                        <option>New Mexico</option>
+                                        <option>New York</option>
+                                        <option>North Carolina</option>
+                                        <option>North Dakota</option>
+                                        <option>Ohio</option>
+                                        <option>Oklahoma</option>
+                                        <option>Oregon</option>
+                                        <option>Pennsylvania</option>
+                                        <option>Rhode Island</option>
+                                        <option>South Carolina</option>
+                                        <option>South Dakota</option>
+                                        <option>Tennessee</option>
+                                        <option>Texas</option>
+                                        <option>Utah</option>
+                                        <option>Vermont</option>
+                                        <option>Virginia</option>
+                                        <option>Washington</option>
+                                        <option>West Virginia</option>
+                                        <option>Wisconsin</option>
+                                        <option>Wyoming</option>
+
+
+
+
+
+                                    </select>
+
+                                <input class='form-control' id='id_zip' placeholder='Zip Code' type='text'>
+
+
                             </div>
                         </div>
                         <div class='form-group internal'>
@@ -186,16 +257,36 @@
 
 
                 <div class='form-group'>
-                    <label class='control-label col-md-2 col-md-offset-2' for='id_email'>Senior Citizenship</label>
+                    <label class='control-label col-md-2 col-md-offset-2' for='id_email'>Senior Citizen</label>
                     <div class='col-md-6'>
                         <div class='form-group'>
                             <div class='col-md-11'>
-                                <input class='form-control' id='id_citizenshipstatus' placeholder='Status' type='text'>
+                                <select class='form-control' id='id_citizenshipstatus' placeholder='Status' type='text'>
+                                <option>Yes</option>
+                                <option>No</option>
                             </div>
+
                         </div>
 
                     </div>
                 </div>
+
+                <div class='form-group'>
+                    <label class='control-label col-md-2 col-md-offset-2' for='id_email'>Disability Status</label>
+                    <div class='col-md-6'>
+                        <div class='form-group'>
+                            <div class='col-md-11'>
+                                <select class='form-control' id='id_citizenshipstatus' placeholder='Disability' type='text'>
+                                    <option></option>
+                                    <option></option>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
                 <div class='form-group'>
                     <label class='control-label col-md-2 col-md-offset-2' for='id_checkin'>Checkin</label>
                     <div class='col-md-8'>
