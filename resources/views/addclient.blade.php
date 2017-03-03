@@ -13,9 +13,17 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
         <link rel="stylesheet" type="text/css" href="/css/style.css">
+
+
+        <style> #AddNewClient
+            {background: skyblue;
+
+
+            } </style>
+
     </head>
     <body>
-        <h1 class="a">Add New Client</h1>
+        <h1 id="AddNewClient" class="a">Add New Client</h1>
         <h3>Fill out all the fields to add a new veteran client to the database.</h3>
         <div id="form-container">
             <form method="post">
@@ -28,6 +36,16 @@
                 </div>
                 <div class="form-element">
                     <p class="text-field">Age: </p><input class="text-field" type="text" name="age">
+                </div>
+                <div class="form-element">
+                    <p class="text-field">Branch: </p><BR>
+                    <INPUT TYPE=RADIO NAME="Branch" VALUE="Army">Army<BR>
+                    <INPUT TYPE=RADIO NAME="Branch" VALUE="Navy">Navy<BR>
+                    <INPUT TYPE=RADIO NAME="Branch" VALUE="Air Force">Air Force<BR>
+                    <INPUT TYPE=RADIO NAME="Branch" VALUE="Marines">Marines<BR>
+                    <INPUT TYPE=RADIO NAME="Branch" VALUE="Coast Guard">Coast Guard<BR>
+                    <INPUT TYPE=RADIO NAME="Branch" VALUE="Reserves">Reserves<BR>
+
                 </div>
                 <div class="form-element">
                     <p class="text-field">Disability Status: </p><input class="text-field" type="text" name="disability_status">
