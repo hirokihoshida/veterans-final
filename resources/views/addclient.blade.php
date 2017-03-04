@@ -67,6 +67,7 @@
             font-weight: 600;
             color: #777;
         }
+
     </style>
 
 </head>
@@ -77,9 +78,22 @@
             <h5>Add New Client</h5>
         </div>
         <div class='panel-body'>
-            <div id="added" <?php if (!$added) echo "hidden"; ?>>
-                Client added successfully.
+            <div id="validation">
+                @if ($added)
+                    <div id="added">
+                        Client added successfully.
+                    </div>
+                @endif
+
+                @if (count($errors) > 0)
+                    <div id="display_errors">
+                        @foreach ($errors->all() as $e)
+                            <li>{{ $e }}</li>
+                        @endforeach
+                    </div>
+                @endif
             </div>
+
             <form class='form-horizontal' role='form' method="post">
                 {{ csrf_field() }}
                 <div class='form-group'>
