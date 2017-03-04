@@ -16,19 +16,6 @@
             type='text/javascript'></script>
     <script src='http://davidstutz.github.io/bootstrap-multiselect/js/bootstrap-multiselect.js'
             type='text/javascript'></script>
-    <script
-            src="http://code.jquery.com/jquery-3.1.1.js"
-            integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
-            crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
 
 <style>
     .indent-small {
@@ -36,6 +23,7 @@
     }
     .form-group.internal {
     margin-bottom: 0;
+        padding-bottom: 0;
     }
     .dialog-panel {
     margin: 10px;
@@ -66,6 +54,7 @@
     label.control-label {
     font-weight: 600;
     color: #777;
+
     }
 </style>
 
@@ -74,21 +63,42 @@
 <div class='container'>
     <div class='panel panel-primary dialog-panel'>
         <div class='panel-heading'>
-            <h5>Add New Client</h5>
+            <h5>Bergen County Veterans Affairs Services - Add Client</h5>
         </div>
         <div class='panel-body'>
             <form class='form-horizontal' role='form'>
                 <div class='form-group'>
+                    <label class='control-label col-md-2 col-md-offset-2' for='id_accomodation'>Accomodation</label>
+                    <div class='col-md-2'>
+                        <select class='form-control' id='id_accomodation'>
+                            <option>RV</option>
+                            <option>Tent</option>
+                            <option>Cabin/Lodging</option>
+                        </select>
+                    </div>
+                </div>
+                <div class='form-group'>
                     <label class='control-label col-md-2 col-md-offset-2' for='id_title'>Name</label>
                     <div class='col-md-8'>
-                        <div class='col-md-3'>
+                        <div class='col-md-2'>
                             <div class='form-group internal'>
-                                <input class='form-control' id='id_first_name' name='first_name' placeholder='First Name' type='text'>
+                                <select class='form-control' id='id_title'>
+                                    <option>Mr</option>
+                                    <option>Ms</option>
+                                    <option>Mrs</option>
+                                    <option>Miss</option>
+                                    <option>Dr</option>
+                                </select>
                             </div>
                         </div>
                         <div class='col-md-3 indent-small'>
                             <div class='form-group internal'>
-                                <input class='form-control' id='id_last_name' name='last_name' placeholder='Last Name' type='text'>
+                                <input class='form-control' id='id_first_name' placeholder='First Name' type='text'>
+                            </div>
+                        </div>
+                        <div class='col-md-3 indent-small'>
+                            <div class='form-group internal'>
+                                <input class='form-control' id='id_last_name' placeholder='Last Name' type='text'>
                             </div>
                         </div>
                     </div>
@@ -97,20 +107,22 @@
                 <div class='form-group'>
                     <label class='control-label col-md-2 col-md-offset-2' for='id_email'>Age</label>
                     <div class='col-md-2'>
-                        <div class='form-group internal'>
+                        <div class='form-group'>
                             <div class='col-md-11'>
-                                <input class='form-control' id='id_age' name='age' placeholder='Age' type='text'>
+                                <input class='form-control' id='id_age' placeholder='Age' type='number'>
                             </div>
                         </div>
+
                     </div>
                 </div>
+
 
                 <div class='form-group'>
                     <label class='control-label col-md-2 col-md-offset-2' for='id_equipment'>Branch</label>
                     <div class='col-md-8'>
                         <div class='col-md-3'>
                             <div class='form-group internal'>
-                                <select class='form-control' name='branch' id='id_equipment'>
+                                <select class='form-control' id='id_equipment'>
                                     <option>Army</option>
                                     <option>Marines</option>
                                     <option>Navy</option>
@@ -120,149 +132,215 @@
                                 </select>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class='form-group'>
-                    <label class='control-label col-md-2 col-md-offset-2' for='id_email'>Disability Status</label>
-                    <div class='col-md-2'>
-                        <div class='form-group internal'>
-                            <div class='col-md-11'>
-                                <input class='form-control' name='disability_status' placeholder='Status' type='text'>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class='form-group'>
-                    <label class='control-label col-md-2 col-md-offset-2' for='id_email'>Senior Citizen Status</label>
-                    <div class='col-md-2'>
-                        <div class='form-group internal'>
-                            <div class='col-md-11'>
-                                <input class='form-control' id='id_citizenshipstatus' name='senior_citizenship_status' placeholder='Status' type='text'>
+                        <div class='col-md-9'>
+                            <div class='form-group internal'>
+                                <label class='control-label col-md-3' for='id_slide'>D12 Form</label>
+                                <div class='make-switch' data-off-label='NO' data-on-label='YES' id='id_slide_switch'>
+                                    <input id='id_slide' type='checkbox' value='chk_hydro'>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+
+
+
+
+
+                <div class='form-group'>
+                    <label class='control-label col-md-2 col-md-offset-2' for='id_adults'>Years</label>
+                    <div class='col-md-8'>
+                        <div class='col-md-3 indent-small'>
+                            <div class='form-group internal'>
+                                <input class='form-control' id='id_yearsofservice' placeholder='Years of Service' type='number'>
+                            </div>
+                        </div>
+                        <div class='col-md-8'>
+                            <div class='form-group internal'>
+                                <label class='control-label col-md-4' for='id_slide'>Valid ID Status</label>
+                                <div class='make-switch' data-off-label='NO' data-on-label='YES' id='id_slide_switch'>
+                                    <input id='id_slide' type='checkbox' value='chk_idstatus'>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
 
                 <div class='form-group'>
                     <label class='control-label col-md-2 col-md-offset-2' for='id_email'>Contact</label>
                     <div class='col-md-6'>
                         <div class='form-group'>
                             <div class='col-md-11'>
-                                <input class='form-control' id='id_email' name='email' placeholder='E-mail' type='text'>
+                                <input class='form-control' id='id_address' placeholder='Street Address' type='text'>
+                                <input class='form-control' id='id_city' placeholder='City' type='text'>
+                                    <select class='form-control' id='id_state'>
+                                        <option>New Jersey</option>
+                                        <option>Alabama</option>
+                                        <option>Alaska</option>
+                                        <option>Arizona</option>
+                                        <option>California</option>
+                                        <option>Colorado</option>
+                                        <option>Connecticut</option>
+                                        <option>Delaware</option>
+                                        <option>Florida</option>
+                                        <option>Georgia</option>
+                                        <option>Hawaii</option>
+                                        <option>Idaho</option>
+                                        <option>Illinois</option>
+                                        <option>Indiana</option>
+                                        <option>Iowa</option>
+                                        <option>Kansas</option>
+                                        <option>Kentucky</option>
+                                        <option>Louisiana</option>
+                                        <option>Maine</option>
+                                        <option>Maryland</option>
+                                        <option>Massachusetts</option>
+                                        <option>Michigan</option>
+                                        <option>Minnesota</option>
+                                        <option>Mississippi</option>
+                                        <option>Missouri</option>
+                                        <option>Montana</option>
+                                        <option>Nebraska</option>
+                                        <option>Nevada</option>
+                                        <option>New Hampshire</option>
+                                        <option>New Jersey</option>
+                                        <option>New Mexico</option>
+                                        <option>New York</option>
+                                        <option>North Carolina</option>
+                                        <option>North Dakota</option>
+                                        <option>Ohio</option>
+                                        <option>Oklahoma</option>
+                                        <option>Oregon</option>
+                                        <option>Pennsylvania</option>
+                                        <option>Rhode Island</option>
+                                        <option>South Carolina</option>
+                                        <option>South Dakota</option>
+                                        <option>Tennessee</option>
+                                        <option>Texas</option>
+                                        <option>Utah</option>
+                                        <option>Vermont</option>
+                                        <option>Virginia</option>
+                                        <option>Washington</option>
+                                        <option>West Virginia</option>
+                                        <option>Wisconsin</option>
+                                        <option>Wyoming</option>
+
+
+
+
+
+                                    </select>
+
+                                <input class='form-control' id='id_zip' placeholder='Zip Code' type='text'>
+
+
                             </div>
                         </div>
                         <div class='form-group internal'>
                             <div class='col-md-11'>
-                                <input class='form-control' id='id_phone' name='phone_number' placeholder='Phone Number' type='text'>
+                                <input class='form-control' id='id_phone' placeholder='Phone: (xxx) - xxx xxxx'
+                                       type='text'>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label class='control-label col-md-2 col-md-offset-2' for='id_slide'>DD214 Form</label>
-                    <div class='col-md-2'>
-                        <div class='form-group internal'>
-                            <div class='col-md-11'>
-                                <input class='form-control' id='id_age' name='DD214' placeholder='DD214' type='text'>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+
+
+
 
                 <div class='form-group'>
-                    <label class='control-label col-md-2 col-md-offset-2' for='id_email'>Valid ID Status</label>
-                    <div class='col-md-2'>
-                        <div class='form-group internal'>
-                            <div class='col-md-11'>
-                                <input class='form-control' name='valid_id_status' placeholder='Status' type='text'>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class='form-group'>
-                    <label class='control-label col-md-2 col-md-offset-2' for='id_email'>Income Level</label>
-                    <div class='col-md-2'>
-                        <div class='form-group internal'>
-                            <div class='col-md-11'>
-                                <input class='form-control' name='income_level' placeholder='Income Level' type='text'>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class='form-group'>
-                    <label class='control-label col-md-2 col-md-offset-2' for='id_email'>Benefits</label>
+                    <label class='control-label col-md-2 col-md-offset-2' for='id_email'>Senior Citizen</label>
                     <div class='col-md-6'>
-                        <div class='form-group internal'>
+                        <div class='form-group'>
                             <div class='col-md-11'>
-                                <input class='form-control' name='benefits' placeholder='Benefits' type='text'>
+                                <select class='form-control' id='id_citizenshipstatus' placeholder='Status' type='text'>
+                                <option>Yes</option>
+                                <option>No</option>
                             </div>
+
                         </div>
+
                     </div>
                 </div>
 
                 <div class='form-group'>
-                    <label class='control-label col-md-2 col-md-offset-2' for='id_email'>Residence</label>
+                    <label class='control-label col-md-2 col-md-offset-2' for='id_email'>Disability Status</label>
                     <div class='col-md-6'>
-                        <div class='form-group internal'>
+                        <div class='form-group'>
                             <div class='col-md-11'>
-                                <input class='form-control' name='residence' placeholder='Residence' type='text'>
+                                <select class='form-control' id='id_citizenshipstatus' placeholder='Disability' type='text'>
+                                    <option></option>
+                                    <option></option>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class='form-group'>
+                    <label class='control-label col-md-2 col-md-offset-2' for='id_checkin'>Checkin</label>
+                    <div class='col-md-8'>
+                        <div class='col-md-3'>
+                            <div class='form-group internal input-group'>
+                                <input class='form-control datepicker' id='id_checkin'>
+                                <span class='input-group-addon'>
+                    <i class='glyphicon glyphicon-calendar'></i>
+                  </span>
+                            </div>
+                        </div>
+                        <label class='control-label col-md-2' for='id_checkout'>Checkout</label>
+                        <div class='col-md-3'>
+                            <div class='form-group internal input-group'>
+                                <input class='form-control datepicker' id='id_checkout'>
+                                <span class='input-group-addon'>
+                    <i class='glyphicon glyphicon-calendar'></i>
+                  </span>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class='form-group'>
-                    <label class='control-label col-md-2 col-md-offset-2' for='id_email'>Drivers License Status</label>
-                    <div class='col-md-2'>
-                        <div class='form-group internal'>
-                            <div class='col-md-11'>
-                                <input class='form-control' name='drivers_license_status' placeholder='Status' type='text'>
-                            </div>
-                        </div>
+                    <label class='control-label col-md-2 col-md-offset-2' for='id_service'>Required Service</label>
+                    <div class='col-md-8'>
+                        <select class='multiselect' id='id_service' multiple='multiple'>
+                            <option value='hydro'>Hydro</option>
+                            <option value='water'>Water</option>
+                            <option value='sewer'>Sewer</option>
+                        </select>
                     </div>
                 </div>
-
                 <div class='form-group'>
-                    <label class='control-label col-md-2 col-md-offset-2' for='id_email'>Employment Status</label>
-                    <div class='col-md-2'>
-                        <div class='form-group internal'>
-                            <div class='col-md-11'>
-                                <input class='form-control' name='employment_status' placeholder='Status' type='text'>
-                            </div>
+                    <label class='control-label col-md-2 col-md-offset-2' for='id_pets'>Pets</label>
+                    <div class='col-md-8'>
+                        <div class='make-switch' data-off-label='NO' data-on-label='YES' id='id_pets_switch'>
+                            <input id='id_pets' type='checkbox' value='chk_hydro'>
                         </div>
                     </div>
                 </div>
-
-                <div class='form-group'>
-                    <label class='control-label col-md-2 col-md-offset-2' for='id_email'>Background</label>
-                    <div class='col-md-6'>
-                        <div class='form-group internal'>
-                            <div class='col-md-11'>
-                                <input class='form-control' name='background' placeholder='Background' type='text'>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
                 <div class='form-group'>
                     <label class='control-label col-md-2 col-md-offset-2' for='id_comments'>Comments</label>
                     <div class='col-md-6'>
-                        <textarea class='form-control' id='id_comments' name='comments' placeholder='Additional comments' rows='3'></textarea>
+                        <textarea class='form-control' id='id_comments' placeholder='Additional comments'
+                                  rows='3'></textarea>
                     </div>
                 </div>
-
                 <div class='form-group'>
                     <div class='col-md-offset-4 col-md-3'>
-                        <button class='btn-lg btn-primary' type='submit'>Add Client</button>
+                        <button class='btn-lg btn-primary' type='submit'>Add New Client</button>
                     </div>
                     <div class='col-md-3'>
-                        <button onclick="location.href = '/home'" class='btn-lg btn-danger' style='float:right' type='button'>Back</button>
+                        <button class='btn-lg btn-danger' style='float:right' type='submit'>Cancel</button>
                     </div>
                 </div>
             </form>
