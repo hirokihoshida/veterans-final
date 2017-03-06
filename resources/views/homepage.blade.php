@@ -25,7 +25,7 @@
                     <p>Create and add a new client and all of his veteran info to the database.</p>
                 </a>
 
-                <a href='/add' class="col_allw280 fp_service_box">
+                <a href='/clientlist' class="col_allw280 fp_service_box">
                     <div class="con_tit_01">List of Clients</div>
                     <img src="/images/timeline-list-grid-list-icon.png" alt="Image 15" />
                     <p>Table of information and data for all Bergen County Veterans Services clients. </p>
