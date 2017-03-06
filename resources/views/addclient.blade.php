@@ -117,7 +117,7 @@
                     <div class='col-md-2'>
                         <div class='form-group internal'>
                             <div class='col-md-11'>
-                                <input class='form-control' id='id_age' name='age' placeholder='Age' type='text'>
+                                <input class='form-control' id='id_age' type='number' name='age' placeholder='Age' type='text'>
                             </div>
                         </div>
                     </div>
