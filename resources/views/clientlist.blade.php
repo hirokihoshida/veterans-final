@@ -1,14 +1,23 @@
 <html>
     <head>
-
+        <link href="/css/clientlist.css" rel="stylesheet" type="text/css" />
+        <script src='//code.jquery.com/jquery-1.12.4.js' type='text/javascript'></script>
+        <script src='https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js' type='text/javascript'></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#example').DataTable( {
+                    scrollY:        '50vh',
+                    scrollCollapse: true,
+                    paging:         false
+                } );
+            } );
+        </script>
     </head>
 
     <body>
         @foreach($clientlist as $client)
 
         @endforeach
-
-
 
         <table id="example" class="display" cellspacing="0" width="100%">
             <thead>
