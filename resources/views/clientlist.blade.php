@@ -2,7 +2,14 @@
     <head>
         <link href="/css/clientlist.css" rel="stylesheet" type="text/css" />
         <script src='//code.jquery.com/jquery-1.12.4.js' type='text/javascript'></script>
-        {{--<script src='https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js' type='text/javascript'></script>--}}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
         <script type="text/javascript">
             $(document).ready(function() {
                 $('#example').DataTable( {
@@ -12,6 +19,13 @@
                 } );
             } );
 
+//            $('.dataTables_scrollHead').scroll(function(){
+//                $('.dataTables_scrollBody').scrollLeft( $('.dataTables_scrollHead').scrollLeft() );
+//            });
+//
+//            $('.dataTables_scrollBody').scroll(function(){
+//                $('.dataTables_scrollHead').scrollLeft( $('.dataTables_scrollBody').scrollLeft() );
+//            });
             /*!
              DataTables 1.10.13
              ©2008-2016 SpryMedia Ltd - datatables.net/license
@@ -95,7 +109,7 @@
                                     top: 1,
                                     left: 1,
                                     width: 100,
-                                    overflow: "scroll"
+                                    overflow: "auto"
                                 }).append(h("<div/>").css({
                                     width: "100%",
                                     height: 10
@@ -1200,7 +1214,7 @@
                     }).append(h("<div/>", {
                         "class": f.sScrollHead
                     }).css({
-                        overflow: "hidden",
+                        overflow: "scroll",
                         position: "relative",
                         border: 0,
                         width: d ? !d ? null : v(d) : "100%"
@@ -1406,7 +1420,7 @@
                             left: 0,
                             height: 1,
                             right: 0,
-                            overflow: "hidden"
+                            overflow: "auto"
                         } : {}).append(j).appendTo(k);
                         f && g ? j.width(g) : f ? (j.css("width", "auto"), j.removeAttr("width"), j.width() < k.clientWidth && l && j.width(k.clientWidth)) : e ? j.width(k.clientWidth) : l && j.width(l);
                         for (m = e = 0; m < i.length; m++) k = h(n[m]), g = k.outerWidth() - k.width(), k = o.bBounding ? Math.ceil(n[m].getBoundingClientRect().width) : k.outerWidth(), e += k, c[i[m]].sWidth = v(k - g);
