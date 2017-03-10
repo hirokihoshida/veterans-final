@@ -3902,7 +3902,7 @@
 
     <body>
 
-        <table id="example" class="display" cellspacing="0" width="100%">
+        <table id="example" class="table display" cellspacing="0" width="100%">
             <thead>
             <tr>
                 @foreach ($columns as $column)

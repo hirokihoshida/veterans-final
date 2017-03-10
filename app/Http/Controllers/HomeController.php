@@ -10,9 +10,17 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     //
-    public function show() {
-        
-    	return view('home');
+    public function homePage() {
+        if (Auth::check()) {
+            return view('home');
+        } else {
+            return redirect()->intended('/');
+        }
+    }
+
+    public function logout() {
+        Auth::logout(); // log the user out of our application
+        return redirect()->intended('/');
     }
 
     public function login() {
@@ -24,8 +32,7 @@ class HomeController extends Controller
         $password = $request->input('password');
 
         if (Auth::attempt(['username' => $username, 'password' => $password])) {
-            echo("success");
-            return redirect()->intended('home');
+            return view('home');
         } else {
             return view('login', ['invalid' => True]);
         }

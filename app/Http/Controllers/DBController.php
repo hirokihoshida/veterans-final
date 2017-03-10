@@ -18,7 +18,9 @@ class DBController extends Controller
     }
 
     public function getClientNotifications() {
-        
+        // take most recent visit from each client
+        $clientlist = DB::select("select * from visit v left join client c on v.client_id = c.id group by c.id");
+        return view('notifications', ['clientlist' => $clientlist]);
     }
 
     public function addNewClient(Request $request) {

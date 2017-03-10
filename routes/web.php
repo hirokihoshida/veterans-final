@@ -15,9 +15,11 @@ Route::get('/', 'HomeController@login');
 
 Route::post('/', 'HomeController@authenticate');
 
-Route::get('home', function () {
-     return view('homepage');
-});
+Route::get('/login', 'HomeController@login');
+
+Route::post('/login', 'HomeController@authenticate');
+
+Route::get('/home', 'HomeController@homePage');
 
 Route::get('/add', function() {
      return view('addclient', ['added' => False]);
@@ -26,3 +28,7 @@ Route::get('/add', function() {
 Route::post('/add', 'DBController@addNewClient');
 
 Route::get('/clientlist', 'DBController@getClientList');
+
+Route::get('/notifications', 'DBController@getClientNotifications');
+
+Route::get('/logout', 'HomeController@logout');

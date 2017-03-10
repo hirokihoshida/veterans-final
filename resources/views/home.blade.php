@@ -59,7 +59,7 @@
         </div> <!-- end of content -->
 
     </div> <!-- end of main -->
-
+    <button onclick="location.href='/logout'">Logout</button>
 </div> <!-- end of wrapper -->
 <!--   Free Website Template by t o o p l a t e . c o m   -->
 </body>
