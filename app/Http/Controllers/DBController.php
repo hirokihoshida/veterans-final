@@ -17,15 +17,44 @@ class DBController extends Controller
         return view('clientlist', ['clientlist' => $clientlist, 'columns' => $columnNames]);
     }
 
-    public function getClientNotifications() {
-        $query = "select c.last_name, c.first_name, v.date, v.comments, datediff(current_date(), v.date) as daysSinceLastVisit
+    public function getClientNotifications($sortby = null) {
+        $query = "select c.last_name, c.first_name, v.date, v.comments, v.count, v.daysSinceLastVisit from 
+
+client c left join 
+
+(select c.id, v.date, v.comments, count(*) as count, datediff(current_date(), v.date) as daysSinceLastVisit
 from client c 
-left join visit v on v.client_id = c.id 
-group by c.id 
-order by v.date desc";
+inner join visit v on v.client_id = c.id 
+group by c.id) as v
+
+on c.id = v.id
+ 
+order by ";
+        if ($sortby == null) {
+            $query = $query . "v.date desc";
+        } else if ($sortby == 1) {
+            $query = $query . "v.date";
+        } else if ($sortby == 2) {
+            $query = $query . "c.last_name";
+        } else if ($sortby == 3) {
+            $query = $query . "c.last_name desc";
+        } else if ($sortby == 4) {
+            $query = $query . "c.first_name";
+        } else if ($sortby == 5) {
+            $query = $query . "c.first_name desc";
+        } else if ($sortby == 6) {
+            $query = $query . "v.count desc";
+        } else if ($sortby == 7) {
+            $query = $query . "v.count";
+        } else if ($sortby == 8) {
+            $query = $query . "v.daysSinceLastVisit desc";
+        } else if ($sortby == 9) {
+            $query = $query . "v.daysSinceLastVisit";
+        }
+
         // take most recent visit from each client
         $clientlist = DB::select($query);
-        return view('notifications', ['clientlist' => $clientlist]);
+        return view('notifications', ['clientlist' => $clientlist, 'sortby' => $sortby]);
     }
 
     public function addNewClient(Request $request) {

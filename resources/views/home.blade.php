@@ -42,7 +42,7 @@
                     <p>Table of information and data for all Bergen County Veterans Services clients. </p>
                 </a>
 
-                <a href='/notifications' class="col_allw280 fp_service_box col_last">
+                <a href='/notifications/' class="col_allw280 fp_service_box col_last">
                     <div class="con_tit_01">Notifications</div>
                     <img src="/images/Apps-Notifications-icon.png" alt="Image 16" />
                     <p>View updates for clients with overdue visits.</p>

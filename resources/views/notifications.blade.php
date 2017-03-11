@@ -1,5 +1,6 @@
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -8,7 +9,7 @@
 
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="css/style.css">
+
     </head>
 
     <body>
@@ -19,17 +20,45 @@
 
         <div class="container table-container">
             <table class="table table-striped table-bordered table-inverse table-hover">
-                <col width="285">
-                <col width="285">
-                <col width="285">
-                <col width="285">
-                <col width="285">
+                <col width="237.5">
+                <col width="237.5">
+                <col width="237.5">
+                <col width="237.5">
+                <col width="237.5">
+                <col width="237.5">
                 <thead>
-                    <th><a>Last Name</a></th>
-                    <th><a>First Name</a></th>
-                    <th><a>Last Visit</a></th>
+                    @if ($sortby == 2)
+                        <th><a href="/notifications/3">Last Name</a></th>
+                    @else
+                        <th><a href="/notifications/2">Last Name</a></th>
+                    @endif
+
+                    @if ($sortby == 4)
+                        <th><a href="/notifications/5">First Name</a></th>
+                    @else
+                        <th><a href="/notifications/4">First Name</a></th>
+                    @endif
+
+                    @if ($sortby == null)
+                        <th><a href="/notifications/1">Last Visit</a></th>
+                    @else
+                        <th><a href="/notifications/">Last Visit</a></th>
+                    @endif
+
                     <th><a>Comments</a></th>
-                    <th><a>Days Since Last Visit</a></th>
+
+                    @if ($sortby == 8)
+                        <th><a href="/notifications/9">Days Since Last Visit</a></th>
+                    @else
+                        <th><a href="/notifications/8">Days Since Last Visit</a></th>
+                    @endif
+
+
+                    @if ($sortby == 6)
+                        <th><a href="/notifications/7">Total Visits Logged</a></th>
+                    @else
+                        <th><a href="/notifications/6">Total Visits Logged</a></th>
+                    @endif
                 </thead>
                 <tbody>
                     @foreach($clientlist as $client)
@@ -47,6 +76,11 @@
                                 <td>{{ substr($client->date, 0, 10) }}</td>
                                 <td>{{ $client->comments }}</td>
                                 <td>{{ $client->daysSinceLastVisit }}</td>
+                                @if ($client->count == null)
+                                    <td>0</td>
+                                @else
+                                    <td>{{$client->count}}</td>
+                                @endif
                             </tr>
                     @endforeach
                 </tbody>
