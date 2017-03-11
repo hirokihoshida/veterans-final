@@ -32,7 +32,7 @@ class HomeController extends Controller
         $password = $request->input('password');
 
         if (Auth::attempt(['username' => $username, 'password' => $password])) {
-            return view('home');
+            return redirect()->intended('/home');
         } else {
             return view('login', ['invalid' => True]);
         }

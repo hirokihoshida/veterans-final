@@ -18,8 +18,13 @@ class DBController extends Controller
     }
 
     public function getClientNotifications() {
+        $query = "select c.last_name, c.first_name, v.date, v.comments, datediff(current_date(), v.date) as daysSinceLastVisit
+from client c 
+left join visit v on v.client_id = c.id 
+group by c.id 
+order by v.date desc";
         // take most recent visit from each client
-        $clientlist = DB::select("select * from visit v left join client c on v.client_id = c.id group by c.id");
+        $clientlist = DB::select($query);
         return view('notifications', ['clientlist' => $clientlist]);
     }
 

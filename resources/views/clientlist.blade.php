@@ -6,14 +6,14 @@
 
         <!-- Optional theme -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
+        <link rel="stylesheet" href="css/style.css">
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
         <script type="text/javascript">
             $(document).ready(function() {
                 $('#example').DataTable( {
-                    scrollY:        '80vh',
+                    scrollY:        '65vh',
                     scrollCollapse: true,
                     paging:         false
                 } );
@@ -3901,41 +3901,42 @@
     </head>
 
     <body>
+        <div class="header">
+            <h1 class="client-header">Client List</h1>
+            <button class="back-button btn-lg btn-danger" onclick="location.href='/home'" type="button">Back</button>
+        </div>
 
-        <table id="example" class="table display" cellspacing="0" width="100%">
-            <thead>
-            <tr>
-                @foreach ($columns as $column)
-                    <th>{{ $column->COLUMN_NAME }}</th>
-                @endforeach
-
-            </tr>
-            </thead>
-
-            <tbody>
-            @foreach($clientlist as $client)
+        <div class="container">
+            <table id="example" class="table display" cellspacing="0" width="100%">
+                <thead>
                 <tr>
-                    <td>{{ $client->last_name }}</td>
-                    <td> {{ $client->first_name }}</td>
-                    <td> {{ $client->age }}</td>
-                    <td> {{ $client->disability_status }}</td>
-                    <td> {{ $client->senior_citizenship_status }}</td>
-                    <td> {{ $client->phone_number }}</td>
-                    <td> {{ $client->DD214 }}</td>
-                    <td> {{ $client->valid_id_status }}</td>
-                    <td> {{ $client->income_level }}</td>
-                    <td> {{ $client->benefits }}</td>
-                    <td> {{ $client->residence }}</td>
-                    <td> {{ $client->drivers_license_status }}</td>
-                    <td> {{ $client->employment_status }}</td>
-                    <td> {{ $client->background }}</td>
-                    <td> {{ $client->comments }}</td>
+                    @foreach ($columns as $column)
+                        <th>{{ $column->COLUMN_NAME }}</th>
+                    @endforeach
                 </tr>
-            @endforeach
-            </tbody>
-        </table>
-
-        <button onclick="location.href='/home'" type="button">Back</button>
-
+                </thead>
+                <tbody>
+                @foreach($clientlist as $client)
+                    <tr>
+                        <td>{{ $client->last_name }}</td>
+                        <td> {{ $client->first_name }}</td>
+                        <td> {{ $client->age }}</td>
+                        <td> {{ $client->disability_status }}</td>
+                        <td> {{ $client->senior_citizenship_status }}</td>
+                        <td> {{ $client->phone_number }}</td>
+                        <td> {{ $client->DD214 }}</td>
+                        <td> {{ $client->valid_id_status }}</td>
+                        <td> {{ $client->income_level }}</td>
+                        <td> {{ $client->benefits }}</td>
+                        <td> {{ $client->residence }}</td>
+                        <td> {{ $client->drivers_license_status }}</td>
+                        <td> {{ $client->employment_status }}</td>
+                        <td> {{ $client->background }}</td>
+                        <td> {{ $client->comments }}</td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </div>
     </body>
 </html>

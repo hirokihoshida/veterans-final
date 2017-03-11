@@ -7,8 +7,34 @@
     display: inline;
 }
 
-#branch {
+.back-button {
+    float: right;
+    margin: 10px;
+}
 
+.client-header {
+    position: absolute;
+    margin-bottom: 0;
+    width: 50%;
+    right: 25%;
+    text-align: center;
+}
 
+.header {
+    position: relative;
+    left: 15%;
+    width: 70%;
+    height: 10%;
+}
 
+.table-container {
+    position: relative;
+}
+
+.text-align-center {
+    text-align:center;
+}
+
+thead a {
+    color: black;
 }
