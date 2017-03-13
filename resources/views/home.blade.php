@@ -54,7 +54,7 @@
                     <p>Generate statistics reports for presentation.</p>
                 </a>
 
-                <a href='/add' class="col_allw280 fp_service_box">
+                <a href='/search' class="col_allw280 fp_service_box">
                     <div class="con_tit_01">Data Search</div>
                     <img src="/images/search-icon.png" alt="Image 18" />
                     <p>Retrieve customized data on veterans from the database.</p>

@@ -31,4 +31,8 @@ Route::get('clientlist', 'DBController@getClientList');
 
 Route::get('notifications/{sortby?}', 'DBController@getClientNotifications')->where('sortby', '[0-9]');
 
+Route::get('search', 'DBController@loadSearch');
+
+Route::post('search', 'DBController@search');
+
 Route::get('logout', 'HomeController@logout');

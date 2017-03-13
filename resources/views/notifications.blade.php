@@ -19,7 +19,7 @@
         </div>
 
         <div class="container table-container">
-            <table class="table table-striped table-bordered table-inverse table-hover">
+            <table class="table table-striped table-bordered table-hover">
                 <col width="237.5">
                 <col width="237.5">
                 <col width="237.5">
