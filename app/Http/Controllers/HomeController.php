@@ -38,7 +38,7 @@ class HomeController extends Controller
         }
     }
 
-    public function logivist() {
+    public function logvisit() {
         return view('logvisit');
 
     }
