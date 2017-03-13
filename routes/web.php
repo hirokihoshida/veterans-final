@@ -32,3 +32,5 @@ Route::get('clientlist', 'DBController@getClientList');
 Route::get('notifications/{sortby?}', 'DBController@getClientNotifications')->where('sortby', '[0-9]');
 
 Route::get('logout', 'HomeController@logout');
+
+Route::get('logvisit', 'HomeController@logvisit');

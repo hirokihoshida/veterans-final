@@ -37,4 +37,9 @@ class HomeController extends Controller
             return view('login', ['invalid' => True]);
         }
     }
+
+    public function logivist() {
+        return view('logvisit');
+
+    }
 }
