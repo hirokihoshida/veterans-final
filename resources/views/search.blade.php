@@ -16,7 +16,7 @@
             <h1 class="client-header" style="margin-bottom: 40px">Data Search</h1>
         </div>
 
-        <div class="container">
+        <div class="form-container">
             <form method="post">
                 <div class="form-group">
                     <label class="col-form-label row" for="select">Select: </label>
