@@ -37,12 +37,7 @@
         .form-group.internal {
             margin-bottom: 0;
         }
-        .dialog-panel {
-            margin: 10px;
-        }
-        .datepicker-dropdown {
-            z-index: 200 !important;
-        }
+
         .panel-body {
             background: #e5e5e5;
             /* Old browsers */
@@ -68,16 +63,27 @@
             color: #777;
         }
 
+        .cleaner {
+            display:block;
+            height: 10px;
+        }
     </style>
 
 </head>
 <body>
 <div class='container'>
+    <div class="header">
+        <button class="back-button btn-lg btn-danger" onclick="location.href='/home'" type="button">Back</button>
+        <h1 class="client-header" style="margin-bottom: 40px">Add New Client</h1>
+    </div>
     <div class='panel panel-primary dialog-panel'>
-        <div class='panel-heading'>
-            <h5>Add New Client</h5>
-        </div>
+
+
+        {{--<div class='panel-heading'>--}}
+
+        {{--</div>--}}
         <div class='panel-body'>
+
             <div id="validation">
                 @if ($added)
                     <div id="added">
@@ -95,6 +101,7 @@
             </div>
 
             <form class='form-horizontal' role='form' method="post">
+
                 {{ csrf_field() }}
                 <div class='form-group'>
                     <label class='control-label col-md-2 col-md-offset-2' for='id_title'>Name</label>
@@ -280,9 +287,9 @@
                     <div class='col-md-offset-4 col-md-3'>
                         <button class='btn-lg btn-primary' type='submit'>Add Client</button>
                     </div>
-                    <div class='col-md-3'>
-                        <button onclick="location.href = '/home'" class='btn-lg btn-danger' style='float:right' type='button'>Back</button>
-                    </div>
+                    {{--<div class='col-md-3'>--}}
+                        {{--<button onclick="location.href = '/home'" class='btn-lg btn-danger' style='float:right' type='button'>Back</button>--}}
+                    {{--</div>--}}
                 </div>
             </form>
         </div>

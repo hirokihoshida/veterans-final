@@ -7,14 +7,26 @@ use App\Client;
 
 class DBController extends Controller
 {
+    public function loadSearch() {
+        $columns = DB::select("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'client'");
+        // Page doesn't need id, created_at, or updated_at, which are the first three columns in the client table
+        unset($columns[0]);
+        unset($columns[1]);
+        unset($columns[2]);
+
+        $results = [];
+        return view('search', ['columns' => $columns]);
+    }
+
     public function getClientList() {
         $clientlist = DB::select('select * from client');
-        $columnNames = DB::select("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'client';");
-        unset($columnNames[0]);
-        unset($columnNames[1]);
-        unset($columnNames[2]);
+        $columns = DB::select("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'client'");
+        // Page doesn't need id, created_at, or updated_at, which are the first three columns in the client table
+        unset($columns[0]);
+        unset($columns[1]);
+        unset($columns[2]);
 
-        return view('clientlist', ['clientlist' => $clientlist, 'columns' => $columnNames]);
+        return view('clientlist', ['clientlist' => $clientlist, 'columns' => $columns]);
     }
 
     public function getClientNotifications($sortby = null) {
