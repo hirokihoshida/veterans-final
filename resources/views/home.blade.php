@@ -60,6 +60,11 @@
                     <p>Retrieve customized data on veterans from the database.</p>
                 </a>
 
+                <a href='/logvisit' class="col_allw280 fp_service_box col_last">
+                    <div class="con_tit_01">Log Visit</div>
+                    <img src="/images/Notepad-512.png" alt="Image 18" />
+                    <p>Log the details of a client visit.</p>
+                </a>
 
                 <div class="cleaner"></div>
 

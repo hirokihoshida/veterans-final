@@ -39,3 +39,11 @@
 thead a {
     color: black;
 }
+
+.form-container {
+    display: inline;
+    position: relative;
+    width: 80%;
+    left: 10%;
+    height: 40%;
+}
