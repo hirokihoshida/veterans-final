@@ -11,30 +11,99 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     </head>
     <body>
-        <div class="header">
-            <button class="back-button btn-lg btn-danger" onclick="location.href='/home'" type="button">Back</button>
-            <h1 class="client-header" style="margin-bottom: 40px">Data Search</h1>
+        <div style="position:relative; width:60%; left:20%">
+            <div class="header">
+                <button class="back-button btn-lg btn-danger" onclick="location.href='/home'" type="button">Back</button>
+                <h1 class="client-header" style="margin-bottom: 40px">Data Search</h1>
+            </div>
         </div>
 
-        <div class="form-container">
-            <form method="post">
-                <div class="form-group">
-                    <label class="col-form-label row" for="select">Select: </label>
-                    <select class="form-element" name="select" id="select">
-                        <option>-- Select --</option>
-                        @foreach ($columns as $column)
-                            <option>{{ $column->COLUMN_NAME }}</option>
-                        @endforeach
-                    </select>
+        <div class="top-container">
+            <div class="form-container">
+                <div class="float-right">
+                    <form method="post" id="search-form">
+                        {{ csrf_field() }}
+                        <div class="form-group">
+                            <label class="col-form-label row" for="select">Select field: </label>
+                            <select class="form-element" name="select" id="select" required>
+                                <option value="">-- Select --</option>
+                                @foreach ($columns as $column)
+                                    <option value={{$column->COLUMN_NAME }}>{{ $column->COLUMN_NAME }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-form-label row">From clients who have: </label>
+                            <select class="form-element" name="where" id="select" required>
+                                <option value="">-- Select --</option>
+                                @foreach ($columns as $column)
+                                    <option value={{$column->COLUMN_NAME }}>{{ $column->COLUMN_NAME }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-form-label row">Of a value equal to: </label>
+                            <div class="internal">
+                                <div class="col-md-6" style="padding-left:0">
+                                    <input type="text" class="form-control" name="value" style="width:200px" required>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-            </form>
+
+            </div>
+
+            <div class="instructions-container">
+                <div class="float-left">
+                    <h3>Select Clause: Select field of data to retrieve</h3>
+                    <h3>From Clause: Select field of data to filter clients by</h3>
+                    <h3>Of Clause: Specify required value for filtered clients</h3>
+                </div>
+            </div>
         </div>
 
+        <div class="button-wrapper">
+            <button type="submit" form="search-form" class="back-button btn-lg btn-default">Search</button>
+        </div>
 
-        <div class="container">
-            <table class="table table-striped table-bordered table-hover">
+        @if (!is_null($results) && !is_null($fields))
 
-            </table>
+            <div class="container">
+                <table class="table table-striped table-bordered table-hover">
+                    <col width="25%">
+                    <col width="25%">
+                    <col width="25%">
+                    <col width="25%">
+                    <thead>
+                    @foreach ($fields as $field)
+                        <th>{{ $field }}</th>
+                    @endforeach
+                    </thead>
+                    <tbody>
+                    @foreach ($results as $result)
+                        <tr>
+                            <td>{{ $result->$fields[0] }}</td>
+                            <td>{{ $result->$fields[1] }}</td>
+                            <td>{{ $result->$fields[2] }}</td>
+                            <td>{{ $result->$fields[3] }}</td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+            </div>
+        @endif
+
+        <div class="validation">
+            @if (count($errors) > 0)
+                <div id="display_errors">
+                    @foreach ($errors->all() as $e)
+                        <li>{{ $e }}</li>
+                    @endforeach
+                </div>
+            @endif
         </div>
     </body>
 </html>

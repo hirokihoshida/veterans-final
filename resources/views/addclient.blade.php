@@ -287,9 +287,6 @@
                     <div class='col-md-offset-4 col-md-3'>
                         <button class='btn-lg btn-primary' type='submit'>Add Client</button>
                     </div>
-                    {{--<div class='col-md-3'>--}}
-                        {{--<button onclick="location.href = '/home'" class='btn-lg btn-danger' style='float:right' type='button'>Back</button>--}}
-                    {{--</div>--}}
                 </div>
             </form>
         </div>

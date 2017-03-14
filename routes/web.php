@@ -33,4 +33,8 @@ Route::get('notifications/{sortby?}', 'DBController@getClientNotifications')->wh
 
 Route::get('logout', 'HomeController@logout');
 
+Route::get('search', 'DBController@loadsearch');
+
+Route::post('search', 'DBController@search');
+
 Route::get('logvisit', 'HomeController@logvisit');

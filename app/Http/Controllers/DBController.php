@@ -8,25 +8,40 @@ use App\Client;
 class DBController extends Controller
 {
     public function loadSearch() {
+        return view('search', ['columns' => $this->getClientColumns(), 'results' => null, 'fields' => null]);
+    }
+
+    public function getClientColumns() {
         $columns = DB::select("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'client'");
         // Page doesn't need id, created_at, or updated_at, which are the first three columns in the client table
         unset($columns[0]);
         unset($columns[1]);
         unset($columns[2]);
+        return $columns;
+    }
 
-        $results = [];
-        return view('search', ['columns' => $columns]);
+    public function search(Request $request) {
+        if (strcmp($request->where, "age") == 0) {
+            $this->validate($request, [
+                'select' => 'required',
+                'where' => 'required',
+                'value' => 'required|integer'
+            ]);
+        } else {
+            $this->validate($request, [
+                'select' => 'required',
+                'where' => 'required',
+                'value' => 'required'
+            ]);
+        }
+
+        $results = DB::table('client')->select('last_name', 'first_name', $request->where, $request->select)->where($request->where, '=', $request->value)->get();
+        return view('search', ['columns' => $this->getClientColumns(), 'results' => $results, 'fields' => array('last_name', 'first_name', $request->select, $request->where)]);
     }
 
     public function getClientList() {
         $clientlist = DB::select('select * from client');
-        $columns = DB::select("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'client'");
-        // Page doesn't need id, created_at, or updated_at, which are the first three columns in the client table
-        unset($columns[0]);
-        unset($columns[1]);
-        unset($columns[2]);
-
-        return view('clientlist', ['clientlist' => $clientlist, 'columns' => $columns]);
+        return view('clientlist', ['clientlist' => $clientlist, 'columns' => $this->getClientColumns()]);
     }
 
     public function getClientNotifications($sortby = null) {
