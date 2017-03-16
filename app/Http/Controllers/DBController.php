@@ -7,6 +7,11 @@ use App\Client;
 
 class DBController extends Controller
 {
+    public function logvisit() {
+        $names = DB::select("select id, concat(first_name, ' ', last_name) as name from client");
+        return view('logvisit', ['names' => $names]);
+    }
+
     public function loadSearch() {
         return view('search', ['columns' => $this->getClientColumns(), 'results' => null, 'fields' => null]);
     }

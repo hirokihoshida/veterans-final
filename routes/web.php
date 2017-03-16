@@ -37,4 +37,4 @@ Route::get('search', 'DBController@loadsearch');
 
 Route::post('search', 'DBController@search');
 
-Route::get('logvisit', 'HomeController@logvisit');
+Route::get('logvisit', 'DBController@logvisit');

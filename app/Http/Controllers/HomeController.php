@@ -38,8 +38,5 @@ class HomeController extends Controller
         }
     }
 
-    public function logvisit() {
-        return view('logvisit');
-
-    }
+    
 }

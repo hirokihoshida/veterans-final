@@ -83,15 +83,18 @@
                     @endforeach
                     </thead>
                     <tbody>
-
-                    @foreach ($results as $result)
-                        <tr>
-                            <td>{{ $result->$fields[0] }}</td>
-                            <td>{{ $result->$fields[1] }}</td>
-                            <td>{{ $result->$fields[2] }}</td>
-                            <td>{{ $result->$fields[3] }}</td>
-                        </tr>
-                    @endforeach
+                    @if (empty($results) && !is_null($results))
+                        <h3>No Results</h3>
+                    @else
+                        @foreach ($results as $result)
+                            <tr>
+                                <td>{{ $result->$fields[0] }}</td>
+                                <td>{{ $result->$fields[1] }}</td>
+                                <td>{{ $result->$fields[2] }}</td>
+                                <td>{{ $result->$fields[3] }}</td>
+                            </tr>
+                        @endforeach
+                    @endif
                     </tbody>
                 </table>
             </div>

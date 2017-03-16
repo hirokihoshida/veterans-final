@@ -33,8 +33,13 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label for="form_name">First Name *</label>
-                    <input id="form_name" type="text" name="name" class="form-control" placeholder="Please enter your firstname *" required="required" data-error="Firstname is required.">
+                    <label for="name">First Name *</label>
+                    <select name="name">
+                        @foreach ($names as $name)
+                            <option value={{ $name->id  }}>{{ $name->name }}</option>
+                        @endforeach
+                    </select>
+                    {{--<input id="form_name" type="text" name="name" class="form-control" placeholder="Please enter your firstname *" required="required" data-error="Firstname is required.">--}}
                     <div class="help-block with-errors"></div>
                 </div>
             </div>
