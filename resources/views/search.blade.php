@@ -83,6 +83,7 @@
                     @endforeach
                     </thead>
                     <tbody>
+
                     @foreach ($results as $result)
                         <tr>
                             <td>{{ $result->$fields[0] }}</td>
