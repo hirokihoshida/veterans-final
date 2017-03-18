@@ -69,10 +69,12 @@
         }
         #image1{
             position: absolute;
-            left: 41.25%;
+            /*left: 37.5%;*/
             margin-top: 60px;
+            left: 42.5%;
             border-radius: 50%;
- 
+            width:230px;
+            height:230px;
 
         }
         input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2); }
@@ -90,7 +92,7 @@
 </head>
 
 <body>
-<img src="/images/bc.jpeg" alt="Bergen County Seal" style="width:250px;height:228px;" id="image1">
+<img src="/images/bc.jpeg" alt="Bergen County Seal" id="image1">
 
 <div class="login">
 

@@ -47,7 +47,7 @@
                             <label class="col-form-label row">Of a value equal to: </label>
                             <div class="internal">
                                 <div class="col-md-6" style="padding-left:0">
-                                    <input type="text" class="form-control" name="value" style="width:200px" required>
+                                    <input type="text" class="form-control" name="value" style="width:200px">
                                 </div>
                             </div>
                         </div>
@@ -72,20 +72,20 @@
         @if (!is_null($results) && !is_null($fields))
 
             <div class="container">
-                <table class="table table-striped table-bordered table-hover">
-                    <col width="25%">
-                    <col width="25%">
-                    <col width="25%">
-                    <col width="25%">
-                    <thead>
-                    @foreach ($fields as $field)
-                        <th>{{ $field }}</th>
-                    @endforeach
-                    </thead>
-                    <tbody>
-                    @if (empty($results) && !is_null($results))
-                        <h3>No Results</h3>
-                    @else
+                @if ($results->isEmpty())
+                    <h3>No Results</h3>
+                @else
+                    <table class="table table-striped table-bordered table-hover">
+                        <col width="25%">
+                        <col width="25%">
+                        <col width="25%">
+                        <col width="25%">
+                        <thead>
+                        @foreach ($fields as $field)
+                            <th>{{ $field }}</th>
+                        @endforeach
+                        </thead>
+                        <tbody>
                         @foreach ($results as $result)
                             <tr>
                                 <td>{{ $result->$fields[0] }}</td>
@@ -94,9 +94,10 @@
                                 <td>{{ $result->$fields[3] }}</td>
                             </tr>
                         @endforeach
-                    @endif
-                    </tbody>
-                </table>
+
+                        </tbody>
+                    </table>
+                @endif
             </div>
         @endif
 

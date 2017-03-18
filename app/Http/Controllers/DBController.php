@@ -35,18 +35,12 @@ class DBController extends Controller
         } else {
             $this->validate($request, [
                 'select' => 'required',
-                'where' => 'required',
-                'value' => 'required'
+                'where' => 'required'
             ]);
         }
 
         $results = DB::table('client')->select('last_name', 'first_name', $request->where, $request->select)->where($request->where, '=', $request->value)->get();
         return view('search', ['columns' => $this->getClientColumns(), 'results' => $results, 'fields' => array('last_name', 'first_name', $request->select, $request->where)]);
-    }
-
-    public function getClientList() {
-        $clientlist = DB::select('select * from client');
-        return view('clientlist', ['clientlist' => $clientlist, 'columns' => $this->getClientColumns()]);
     }
 
     public function getClientNotifications($sortby = null) {
