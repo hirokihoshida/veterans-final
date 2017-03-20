@@ -4,12 +4,33 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Client;
+use App\Visit;
 
 class DBController extends Controller
 {
-    public function logvisit() {
+    public function saveVisit(Request $request) {
+
+        $this->validate($request, [
+            'date' => 'date_format:Y-m-d',
+            'time' => 'date_format:h:i'
+        ]);
+
         $names = DB::select("select id, concat(first_name, ' ', last_name) as name from client");
-        return view('logvisit', ['names' => $names]);
+
+        $visit = new Visit;
+        $visit->client_id = $request->client;
+        $visit->date = $request->date . " " . $request->time;
+        $visit->type = $request->type;
+        $visit->comments = $request->comments;
+
+        $visit->save();
+        return view('logvisit', ['names' => $names, 'saved' => True]);
+
+    }
+
+    public function logVisit() {
+        $names = DB::select("select id, concat(first_name, ' ', last_name) as name from client");
+        return view('logvisit', ['names' => $names, 'saved' => False]);
     }
 
     public function loadSearch() {
