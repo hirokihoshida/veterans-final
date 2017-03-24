@@ -2,6 +2,11 @@
 <head>
     <link rel="stylesheet" href="/css/logvisit.css" type="text/css">
     <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+    <script
+            src="http://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <!-- Optional theme -->
@@ -9,7 +14,35 @@
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script>
+        function showToday() {
+            var today = new Date();
+
+            var date = today.getDate();
+            var month = today.getMonth();
+            var hours = today.getHours();
+            var minutes = today.getMinutes();
+            if (date < 10) date = "0" + date;
+            if (month + 1 < 10) month = "0" + (month + 1);
+            if (hours > 12) hours = today.getHours() - 12;
+            if (minutes < 10) minutes = "0" + today.getMinutes();
+
+
+            if (today.getHours() >= 12)
+                $('#PM').attr("selected", "selected");
+            else
+                $('#AM').attr("selected", "selected");
+
+            var dateText = today.getFullYear() + "-" + month + "-" + date;
+            $('#date').val(dateText);
+
+            var timeText = hours + ":" + minutes;
+            $('#time').val(timeText)
+
+        }
+
+    </script>
 </head>
 
 <body>
@@ -60,14 +93,23 @@
                         <input id="date" type="text" name="date" class="form-control" placeholder="Input date in yyyy-mm-dd format" required>
                     </div>
                 </div>
+                <div class="form-group" style="margin:30px">
+                    <button id="today" onclick="showToday()" type="button">Right Now</button>
+                </div>
             </div>
 
             <div class="row">
                 <div class="col-md-3">
                     <div class="form-group">
-                        <label for="time">Date</label>
+                        <label for="time">Time</label>
                         <input id="time" type="text" name="time" class="form-control" placeholder="Input time in hh:mm format" required>
                     </div>
+                </div>
+                <div class="form-group" style="margin:30px">
+                    <select name="am_pm">
+                        <option id="AM" value="AM" selected>AM</option>
+                        <option id="PM" value="PM">PM</option>
+                    </select>
                 </div>
             </div>
 

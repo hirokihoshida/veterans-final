@@ -8,6 +8,11 @@ use App\Visit;
 
 class DBController extends Controller
 {
+    public function getClientList() {
+        $clientlist = DB::select("select * from client");
+        return view('clientlist', ['clientlist' => $clientlist, 'columns' => $this->getClientColumns()]);
+    }
+
     public function saveVisit(Request $request) {
 
         $this->validate($request, [
@@ -19,7 +24,15 @@ class DBController extends Controller
 
         $visit = new Visit;
         $visit->client_id = $request->client;
-        $visit->date = $request->date . " " . $request->time;
+
+        // parse date and time from form to SQL datetime format
+        $datetime = $request->date . " " . $request->time;
+        $hours = intval(substr($request->time, 0, 2));
+        if (strcmp($request->am_pm, "PM") == 0 && $hours < 12) {
+            $datetime = $request->date . " " . ($hours + 12) . ":" . substr($request->time, 3);
+        }
+        $visit->date = $datetime;
+
         $visit->type = $request->type;
         $visit->comments = $request->comments;
 
