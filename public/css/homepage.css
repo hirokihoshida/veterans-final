@@ -12,6 +12,10 @@ body {
     line-height: 1.7em;
 }
 
+#background {
+    background-image: url("/images/bc.jpeg")
+}
+
 p { margin: 0 0 10px 0; padding: 0; }
 img { border: none; height:48px; width:48px;}
 blockquote { font-style: italic; margin: 0 0 0 10px;}
@@ -155,6 +159,10 @@ h6 { font-size: 14px; margin: 0 0 5px; padding: 0; }
     width: 940px;
     padding: 0 14px;
     background: url('/images/tooplate_main.png') repeat-y;
+    box-shadow: 10px 10px 5px #888888;
+    background-image: url("/images/1280x1024-light-blue-solid-color-background.jpg");
+
+
 }
 
 #tooplate_middle {

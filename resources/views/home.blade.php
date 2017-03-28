@@ -15,7 +15,8 @@
 
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body id="background" >
+
 
 <div id="tooplate_wrapper">
     <div id="tooplate_header">
@@ -76,5 +77,5 @@
 
 </div> <!-- end of wrapper -->
 <!--   Free Website Template by t o o p l a t e . c o m   -->
-</body>
+</>
 </html>

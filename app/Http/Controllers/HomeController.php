@@ -11,11 +11,9 @@ class HomeController extends Controller
 {
     //
     public function homePage() {
-        if (Auth::check()) {
+
             return view('home');
-        } else {
-            return redirect()->intended('/');
-        }
+
     }
 
     public function logout() {
