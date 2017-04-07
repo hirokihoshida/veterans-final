@@ -71,6 +71,12 @@
             </div>
 
         </div> <!-- end of content -->
+
+        @if ($user->admin)
+            <div class="admin-container">
+                <a id="admin-tools-link" href="{{ route('admin-tools') }}">Admin Tools</a>
+            </div>
+        @endif
         <button class='back-button btn-lg btn-danger' onclick="location.href='/logout'">Logout</button>
     </div> <!-- end of main -->
 

@@ -12,7 +12,7 @@ class HomeController extends Controller
     //
     public function homePage() {
         if (Auth::check()) {
-            return view('home');
+            return view('home', ['user' => Auth::user()]);
         } else {
             return redirect()->intended('/');
         }
@@ -38,5 +38,7 @@ class HomeController extends Controller
         }
     }
 
-    
+    public function adminTools() {
+        return view('admin-tools');
+    }
 }
