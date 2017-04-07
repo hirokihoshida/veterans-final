@@ -11,8 +11,7 @@ class HomeController extends Controller
 {
     //
     public function homePage() {
-
-            return view('home');
+        return view('home', ['user' => Auth::user()]);
 
     }
 
