@@ -1,7 +1,7 @@
 <html>
     <head>
         <link href="/css/clientlist.css" rel="stylesheet" type="text/css" />
-        <script src='//code.jquery.com/jquery-1.12.4.js' type='text/javascript'></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
         <!-- Optional theme -->
@@ -19,13 +19,7 @@
                 } );
             } );
 
-//            $('.dataTables_scrollHead').scroll(function(){
-//                $('.dataTables_scrollBody').scrollLeft( $('.dataTables_scrollHead').scrollLeft() );
-//            });
-//
-//            $('.dataTables_scrollBody').scroll(function(){
-//                $('.dataTables_scrollHead').scrollLeft( $('.dataTables_scrollBody').scrollLeft() );
-//            });
+
             /*!
              DataTables 1.10.13
              ©2008-2016 SpryMedia Ltd - datatables.net/license
@@ -3938,5 +3932,14 @@
                 </tbody>
             </table>
         </div>
+        <script>
+            $('.dataTables_scrollHead').scroll(function(){
+                $('.dataTables_scrollBody').scrollLeft( $('.dataTables_scrollHead').scrollLeft() );
+            });
+
+            $('.dataTables_scrollBody').scroll(function(){
+                $('.dataTables_scrollHead').scrollLeft( $('.dataTables_scrollBody').scrollLeft() );
+            });
+        </script>
     </body>
 </html>

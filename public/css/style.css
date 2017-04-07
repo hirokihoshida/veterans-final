@@ -88,3 +88,12 @@ thead a {
     width: 80%;
     left: 10%;
 }
+
+#admin-tools-link {
+    font-size:20px;
+}
+
+.add-button {
+    float:right;
+    margin-right:30px;
+}

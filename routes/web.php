@@ -19,7 +19,7 @@ Route::post('/', 'HomeController@authenticate');
 //
 //Route::post('login', 'HomeController@authenticate');
 
-Route::get('home', 'HomeController@homePage');
+Route::get('home', 'HomeController@homePage')->name('home');
 
 Route::get('add', function() {
      return view('addclient', ['added' => False]);
@@ -40,3 +40,5 @@ Route::post('search', 'DBController@search');
 Route::get('logvisit', 'DBController@logVisit');
 
 Route::post('logvisit', 'DBController@saveVisit');
+
+Route::get('admin-tools', 'HomeController@adminTools')->name('admin-tools');

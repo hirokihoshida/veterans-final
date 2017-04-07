@@ -74,10 +74,16 @@
             </div>
 
         </div> <!-- end of content -->
-        <!--<button class='back-button btn-lg btn-danger' onclick="location.href='/logout'">Logout</button> -->
+
+        @if ($user->admin)
+            <div class="admin-container">
+                <a id="admin-tools-link" href="{{ route('admin-tools') }}">Admin Tools</a>
+            </div>
+        @endif
+        <button class='back-button btn-lg btn-danger' onclick="location.href='/logout'">Logout</button>
     </div> <!-- end of main -->
 
 </div> <!-- end of wrapper -->
 <!--   Free Website Template by t o o p l a t e . c o m   -->
-</>
+</body>
 </html>
