@@ -15,7 +15,9 @@
 
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body id="background" >
+<body id="background">
+
+<button class='back-button btn-lg btn-danger' onclick="location.href='/logout'">Logout</button>
 
 
 <div id="tooplate_wrapper">
@@ -72,7 +74,7 @@
             </div>
 
         </div> <!-- end of content -->
-        <button class='back-button btn-lg btn-danger' onclick="location.href='/logout'">Logout</button>
+        <!--<button class='back-button btn-lg btn-danger' onclick="location.href='/logout'">Logout</button> -->
     </div> <!-- end of main -->
 
 </div> <!-- end of wrapper -->
