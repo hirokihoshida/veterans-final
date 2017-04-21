@@ -3913,20 +3913,20 @@
                 @foreach($clientlist as $client)
                     <tr>
                         <td>{{ $client->last_name }}</td>
-                        <td> {{ $client->first_name }}</td>
-                        <td> {{ $client->age }}</td>
-                        <td> {{ $client->disability_status }}</td>
-                        <td> {{ $client->senior_citizenship_status }}</td>
-                        <td> {{ $client->phone_number }}</td>
-                        <td> {{ $client->DD214 }}</td>
-                        <td> {{ $client->valid_id_status }}</td>
-                        <td> {{ $client->income_level }}</td>
-                        <td> {{ $client->benefits }}</td>
-                        <td> {{ $client->residence }}</td>
-                        <td> {{ $client->drivers_license_status }}</td>
-                        <td> {{ $client->employment_status }}</td>
-                        <td> {{ $client->background }}</td>
-                        <td> {{ $client->comments }}</td>
+                        <td>{{ $client->first_name }}</td>
+                        <td>{{ $client->age }}</td>
+                        <td>{{ $client->disability_status }}</td>
+                        <td>{{ $client->senior_citizenship_status }}</td>
+                        <td>{{ $client->phone_number }}</td>
+                        <td>{{ $client->DD214 }}</td>
+                        <td>{{ $client->valid_id_status }}</td>
+                        <td>{{ $client->income_level }}</td>
+                        <td>{{ $client->benefits }}</td>
+                        <td>{{ $client->residence }}</td>
+                        <td>{{ $client->drivers_license_status }}</td>
+                        <td>{{ $client->employment_status }}</td>
+                        <td>{{ $client->background }}</td>
+                        <td>{{ $client->comments }}</td>
                     </tr>
                 @endforeach
                 </tbody>

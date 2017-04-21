@@ -19,7 +19,7 @@
     </div>
 
     <div class="form-container">
-        <form class="form-horizontal" method="post">
+        <form class="form-horizontal" method="post" action="/new-user">
             <h2>Add New User</h2>
             {{ csrf_field() }}
             <div class="form-group">
@@ -49,8 +49,62 @@
                     <input id="password_confirmation" type="password" class="form-control" name="password_confirmation" required>
                 </div>
             </div>
+
+            <div class="form-group">
+                <div class="col-md-2">
+                    <label class="float-right" for="admin">Admin</label>
+                </div>
+                <input type="checkbox" id="admin" name="admin" value="1">
+            </div>
+
             <button type="submit" class="btn btn-default add-button">Add</button>
 
         </form>
+
+        <div id="validation">
+            @if ($added)
+                <div id="added">
+                    New user added successfully.
+                </div>
+            @endif
+
+            @if (count($errors) > 0)
+                <div id="display_errors">
+                    @foreach ($errors->all() as $e)
+                        <li>{{ $e }}</li>
+                    @endforeach
+                </div>
+            @endif
+        </div>
     </div>
+
+    <div class="form-container">
+        <h2>Manage Users</h2>
+        <ul class="list-group hover">
+            @foreach (\App\User::all() as $user)
+                <li class="list-group-item">
+                    <p class="list-text">{{ $user->username }}</p>
+                    <a href="#" onclick="deleteUser({{ $user->id }})"><img class="delete-user" src="/images/red-minus-hi.png"></a>
+                </li>
+            @endforeach
+        </ul>
+    </div>
+
+    <script>
+        function deleteUser(id) {
+            var form = document.createElement("form");
+            form.setAttribute("method", 'post');
+            form.setAttribute("action", '/delete-user');
+
+            var field = document.createElement("input");
+            field.setAttribute("type", "hidden");
+            field.setAttribute("name", "id");
+            field.setAttribute("value", id);
+
+            form.appendChild(field);
+
+            document.body.appendChild(form);
+            form.submit();
+        }
+    </script>
 </html>

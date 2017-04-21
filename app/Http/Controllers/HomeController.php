@@ -36,6 +36,6 @@ class HomeController extends Controller
     }
 
     public function adminTools() {
-        return view('admin-tools');
+        return view('admin-tools', ['added' => 0]);
     }
 }

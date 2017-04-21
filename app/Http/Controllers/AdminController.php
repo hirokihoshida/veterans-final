@@ -12,13 +12,22 @@ class AdminController extends Controller
             'password' => 'min:6|confirmed'
         ]);
 
+
         $user = new \App\User;
         $user->username = $request->username;
-        $user->password = $request->password;
+        $user->password = bcrypt($request->password);
+        if ($request->admin == 1) $user->admin = 1;
+        else $user->admin = 0;
 
         $user->save();
+
+        return view('admin-tools', ['added' => 1]);
     }
 
+    public function deleteUser(Request $request) {
+        
+    }
+    
 
     /**
      * Display a listing of the resource.

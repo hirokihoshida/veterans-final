@@ -41,4 +41,8 @@ Route::get('logvisit', 'DBController@logVisit');
 
 Route::post('logvisit', 'DBController@saveVisit');
 
-Route::get('admin-tools', 'HomeController@adminTools')->name('admin-tools');
+Route::get('admin-tools', 'HomeController@adminTools')->name('admin-tools')->middleware('checkAdmin');
+
+Route::post('new-user', 'AdminController@addNewUser');
+
+Route::post('delete-user', 'AdminController@deleteUser');
