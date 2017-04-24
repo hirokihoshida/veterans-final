@@ -45,4 +45,4 @@ Route::get('admin-tools', 'HomeController@adminTools')->name('admin-tools')->mid
 
 Route::post('new-user', 'AdminController@addNewUser');
 
-Route::post('delete-user', 'AdminController@deleteUser');
+Route::get('delete-user/{id}', 'AdminController@deleteUser');

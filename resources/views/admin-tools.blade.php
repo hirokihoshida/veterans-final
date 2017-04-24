@@ -84,27 +84,9 @@
             @foreach (\App\User::all() as $user)
                 <li class="list-group-item">
                     <p class="list-text">{{ $user->username }}</p>
-                    <a href="#" onclick="deleteUser({{ $user->id }})"><img class="delete-user" src="/images/red-minus-hi.png"></a>
+                    <a href="delete-user/{{ $user->id }}"><img class="delete-user" src="/images/red-minus-hi.png"></a>
                 </li>
             @endforeach
         </ul>
     </div>
-
-    <script>
-        function deleteUser(id) {
-            var form = document.createElement("form");
-            form.setAttribute("method", 'post');
-            form.setAttribute("action", '/delete-user');
-
-            var field = document.createElement("input");
-            field.setAttribute("type", "hidden");
-            field.setAttribute("name", "id");
-            field.setAttribute("value", id);
-
-            form.appendChild(field);
-
-            document.body.appendChild(form);
-            form.submit();
-        }
-    </script>
 </html>

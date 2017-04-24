@@ -189,11 +189,11 @@
                 </div>
 
                 <div class="form-group">
-                    <label class='control-label col-md-2 col-md-offset-2' for='id_slide'>DD214 Form</label>
+                    <label class='control-label col-md-2 col-md-offset-2' for='id_slide'>Healthcare ID Status</label>
                     <div class='col-md-2'>
                         <div class='form-group internal'>
                             <div class='col-md-11'>
-                                <input class='form-control' id='id_age' name='DD214' placeholder='DD214' type='text'>
+                                <input class='form-control' id='id_age' name='healthcare_id_status' placeholder='Status' type='text'>
                             </div>
                         </div>
                     </div>
@@ -271,6 +271,28 @@
                         <div class='form-group internal'>
                             <div class='col-md-11'>
                                 <input class='form-control' name='background' placeholder='Background' type='text'>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class='form-group'>
+                    <label class='control-label col-md-2 col-md-offset-2' for='id_email'>Combat Zone Service</label>
+                    <div class='col-md-6'>
+                        <div class='form-group internal'>
+                            <div class='col-md-11'>
+                                <input class='form-control' name='combat_zone_service' placeholder='Combat Zone Service' type='text'>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class='form-group'>
+                    <label class='control-label col-md-2 col-md-offset-2' for='id_email'>Character of Service</label>
+                    <div class='col-md-6'>
+                        <div class='form-group internal'>
+                            <div class='col-md-11'>
+                                <input class='form-control' name='char_of_service' placeholder='Character of Service' type='text'>
                             </div>
                         </div>
                     </div>

@@ -132,7 +132,6 @@ order by ";
         $client->disability_status = $request->disability_status;
         $client->senior_citizenship_status = $request->senior_citizenship_status;
         $client->phone_number = $request->phone_number;
-        $client->DD214 = $request->DD214;
         $client->valid_id_status = $request->valid_id_status;
         $client->income_level = $request->income_level;
         $client->benefits = $request->benefits;
@@ -140,6 +139,9 @@ order by ";
         $client->drivers_license_status = $request->drivers_license_status;
         $client->employment_status = $request->employment_status;
         $client->background = $request->background;
+        $client->healthcare_id_status = $request->healthcare_id_status;
+        $client->char_of_service = $request->char_of_service;
+        $client->combat_zone_service = $request->combat_zone_service;
         $client->comments = $request->comments;
 
         $client->save();

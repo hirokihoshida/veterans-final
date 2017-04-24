@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\User;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -24,8 +24,9 @@ class AdminController extends Controller
         return view('admin-tools', ['added' => 1]);
     }
 
-    public function deleteUser(Request $request) {
-        
+    public function deleteUser($id) {
+        User::destroy($id);
+        return view('admin-tools', ['added' => 0]);
     }
     
 
