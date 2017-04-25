@@ -9,8 +9,7 @@ use App\Visit;
 class DBController extends Controller
 {
     public function getClientList() {
-        $clientlist = DB::select("select * from client");
-        return view('clientlist', ['clientlist' => $clientlist, 'columns' => $this->getClientColumns()]);
+        return view('clientlist', ['columns' => $this->getClientColumns()]);
     }
 
     public function saveVisit(Request $request) {

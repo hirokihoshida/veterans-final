@@ -3891,6 +3891,16 @@
                 });
                 return h.fn.dataTable
             });
+
+
+            $('.dataTables_scrollHead').scroll(function(){
+                console.log("hello");
+                $('.dataTables_scrollBody').scrollLeft( $('.dataTables_scrollHead').scrollLeft() );
+            });
+
+            $('.dataTables_scrollBody').scroll(function(){
+                $('.dataTables_scrollHead').scrollLeft( $('.dataTables_scrollBody').scrollLeft() );
+            });
         </script>
     </head>
 
@@ -3910,36 +3920,29 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($clientlist as $client)
+                @foreach(\App\Client::all() as $client)
                     <tr>
                         <td>{{ $client->last_name }}</td>
                         <td>{{ $client->first_name }}</td>
                         <td>{{ $client->age }}</td>
+                        <td>{{ $client->branch }}</td>
                         <td>{{ $client->disability_status }}</td>
                         <td>{{ $client->senior_citizenship_status }}</td>
                         <td>{{ $client->phone_number }}</td>
-                        <td>{{ $client->DD214 }}</td>
-                        <td>{{ $client->valid_id_status }}</td>
                         <td>{{ $client->income_level }}</td>
                         <td>{{ $client->benefits }}</td>
                         <td>{{ $client->residence }}</td>
                         <td>{{ $client->drivers_license_status }}</td>
                         <td>{{ $client->employment_status }}</td>
-                        <td>{{ $client->background }}</td>
+                        <td>{{ $client->combat_zone_zervice }}</td>
+                        <td>{{ $client->healthcare_id_status }}</td>
+                        <td>{{ $client->char_of_service }}</td>
                         <td>{{ $client->comments }}</td>
                     </tr>
                 @endforeach
                 </tbody>
             </table>
         </div>
-        <script>
-            $('.dataTables_scrollHead').scroll(function(){
-                $('.dataTables_scrollBody').scrollLeft( $('.dataTables_scrollHead').scrollLeft() );
-            });
 
-            $('.dataTables_scrollBody').scroll(function(){
-                $('.dataTables_scrollHead').scrollLeft( $('.dataTables_scrollBody').scrollLeft() );
-            });
-        </script>
     </body>
 </html>

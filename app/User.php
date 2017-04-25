@@ -4,11 +4,15 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\DB;
 
 class User extends Authenticatable
 {
     use Notifiable;
 
+    public function adminUsersList() {
+        return DB::select("select * from users where id not in (8, ?)", [$this->id]);
+    }
     /**
      * The attributes that are mass assignable.
      *

@@ -81,7 +81,7 @@
     <div class="form-container">
         <h2>Manage Users</h2>
         <ul class="list-group hover">
-            @foreach (\App\User::all() as $user)
+            @foreach (\Auth::user()->adminUsersList() as $user)
                 <li class="list-group-item">
                     <p class="list-text">{{ $user->username }}</p>
                     <a href="delete-user/{{ $user->id }}"><img class="delete-user" src="/images/red-minus-hi.png"></a>

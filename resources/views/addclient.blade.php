@@ -200,17 +200,6 @@
                 </div>
 
                 <div class='form-group'>
-                    <label class='control-label col-md-2 col-md-offset-2' for='id_email'>Valid ID Status</label>
-                    <div class='col-md-2'>
-                        <div class='form-group internal'>
-                            <div class='col-md-11'>
-                                <input class='form-control' name='valid_id_status' placeholder='Status' type='text'>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class='form-group'>
                     <label class='control-label col-md-2 col-md-offset-2' for='id_email'>Income Level</label>
                     <div class='col-md-2'>
                         <div class='form-group internal'>
