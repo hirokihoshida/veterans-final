@@ -1208,7 +1208,6 @@
                     }).append(h("<div/>", {
                         "class": f.sScrollHead
                     }).css({
-                        overflow: "scroll",
                         position: "relative",
                         border: 0,
                         width: d ? !d ? null : v(d) : "100%"
@@ -1221,7 +1220,6 @@
                         "class": f.sScrollBody
                     }).css({
                         position: "relative",
-                        overflow: "auto",
                         width: !d ? null : v(d)
                     }).append(b));
                     l && i.append(h("<div/>", {
@@ -3891,58 +3889,49 @@
                 });
                 return h.fn.dataTable
             });
-
-
-            $('.dataTables_scrollHead').scroll(function(){
-                console.log("hello");
-                $('.dataTables_scrollBody').scrollLeft( $('.dataTables_scrollHead').scrollLeft() );
-            });
-
-            $('.dataTables_scrollBody').scroll(function(){
-                $('.dataTables_scrollHead').scrollLeft( $('.dataTables_scrollBody').scrollLeft() );
-            });
         </script>
     </head>
 
     <body>
-        <div class="header">
-            <h1 class="client-header">Client List</h1>
-            <button class="back-button btn-lg btn-danger" onclick="location.href='/home'" type="button">Back</button>
+        <div id="clientlist-header">
+            <div class="header" style="position:fixed">
+                <h1 class="client-header">Client List</h1>
+                <button class="back-button btn-lg btn-danger" onclick="location.href='/home'" type="button">Back</button>
+            </div>
+
         </div>
 
-        <div class="container">
-            <table id="example" class="table display" cellspacing="0" width="100%">
-                <thead>
-                <tr>
-                    @foreach ($columns as $column)
-                        <th>{{ $column->COLUMN_NAME }}</th>
-                    @endforeach
-                </tr>
-                </thead>
-                <tbody>
-                @foreach(\App\Client::all() as $client)
-                    <tr>
-                        <td>{{ $client->last_name }}</td>
-                        <td>{{ $client->first_name }}</td>
-                        <td>{{ $client->age }}</td>
-                        <td>{{ $client->branch }}</td>
-                        <td>{{ $client->disability_status }}</td>
-                        <td>{{ $client->senior_citizenship_status }}</td>
-                        <td>{{ $client->phone_number }}</td>
-                        <td>{{ $client->income_level }}</td>
-                        <td>{{ $client->benefits }}</td>
-                        <td>{{ $client->residence }}</td>
-                        <td>{{ $client->drivers_license_status }}</td>
-                        <td>{{ $client->employment_status }}</td>
-                        <td>{{ $client->combat_zone_zervice }}</td>
-                        <td>{{ $client->healthcare_id_status }}</td>
-                        <td>{{ $client->char_of_service }}</td>
-                        <td>{{ $client->comments }}</td>
-                    </tr>
+        <table id="example" class="table display" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                @foreach ($columns as $column)
+                    <th>{{ $column->COLUMN_NAME }}</th>
                 @endforeach
-                </tbody>
-            </table>
-        </div>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach(\App\Client::all() as $client)
+                <tr>
+                    <td>{{ $client->last_name }}</td>
+                    <td>{{ $client->first_name }}</td>
+                    <td>{{ $client->age }}</td>
+                    <td>{{ $client->branch }}</td>
+                    <td>{{ $client->disability_status }}</td>
+                    <td>{{ $client->senior_citizenship_status }}</td>
+                    <td>{{ $client->phone_number }}</td>
+                    <td>{{ $client->income_level }}</td>
+                    <td>{{ $client->benefits }}</td>
+                    <td>{{ $client->residence }}</td>
+                    <td>{{ $client->drivers_license_status }}</td>
+                    <td>{{ $client->employment_status }}</td>
+                    <td>{{ $client->combat_zone_zervice }}</td>
+                    <td>{{ $client->healthcare_id_status }}</td>
+                    <td>{{ $client->char_of_service }}</td>
+                    <td>{{ $client->comments }}</td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
 
     </body>
 </html>

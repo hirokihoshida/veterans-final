@@ -107,3 +107,11 @@ thead a {
 .list-text {
     display:inline;
 }
+
+#clientlist-header {
+    position: relative;
+    display: inline-block;
+    left: 15%;
+    width: 70%;
+    height: 10%;
+}
