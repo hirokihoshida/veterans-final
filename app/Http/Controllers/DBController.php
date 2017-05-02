@@ -72,7 +72,7 @@ class DBController extends Controller
             ]);
         }
 
-        $results = DB::table('client')->select('last_name', 'first_name', $request->where, $request->select)->where($request->where, '=', $request->value)->get();
+        $results = DB::table('client')->select('last_name', 'first_name', $request->where, $request->select)->where($request->where, $request->operator, $request->value)->get();
         return view('search', ['columns' => $this->getClientColumns(), 'results' => $results, 'fields' => array('last_name', 'first_name', $request->select, $request->where)]);
     }
 

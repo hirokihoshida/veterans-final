@@ -47,7 +47,7 @@ thead a {
     left: 20%;
     height: 40%;
     margin: 15px;
-    background-image: url("/images/1280x1024-light-blue-solid-color-background.jpg");
+    background-color: #B5DCFF;
     padding:20px;
 }
 
@@ -62,7 +62,6 @@ thead a {
 .instructions-container {
     float: left;
     width: 50%;
-    margin-left: 3%;
 }
 
 .float-right {

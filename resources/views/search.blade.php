@@ -46,8 +46,13 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-form-label row">Of a value equal to: </label>
+                            <label class="col-form-label row">Of a value: </label>
                             <div class="internal">
+                                <select class="form-element" name="operator" id="operator">
+                                    <option value="=">Equal to</option>
+                                    <option value="<">Less than</option>
+                                    <option value=">">Greater than</option>
+                                </select>
                                 <div class="col-md-6" style="padding-left:0">
                                     <input type="text" class="form-control" name="value" style="width:200px">
                                 </div>
