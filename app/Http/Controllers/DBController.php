@@ -8,6 +8,24 @@ use App\Visit;
 
 class DBController extends Controller
 {
+    public function exportToCSV() {
+        $results = session('search-results');
+        $output = fopen('php://output', 'w') or die("Can't open file");
+        header("Content-Type:application/csv");
+        header('Content-Disposition: attachment; filename="search-results.csv";');
+
+        $fields = session('search-fields');
+        fputcsv($output, $fields);
+        foreach($results as $result){
+            $result_array = array($result->$fields[0], $result->$fields[1], $result->$fields[2], $result->$fields[3]);
+            fputcsv($output, $result_array);
+        }
+        fpassthru($output);
+        fclose($output) or die("Can't close file");
+
+        exit(0);
+    }
+
     public function getClientList() {
         return view('clientlist', ['columns' => $this->getClientColumns()]);
     }
@@ -73,7 +91,12 @@ class DBController extends Controller
         }
 
         $results = DB::table('client')->select('last_name', 'first_name', $request->where, $request->select)->where($request->where, $request->operator, $request->value)->get();
-        return view('search', ['columns' => $this->getClientColumns(), 'results' => $results, 'fields' => array('last_name', 'first_name', $request->select, $request->where)]);
+        $request->session()->flash('search-results', $results);
+
+        $fields = array('last_name', 'first_name', $request->select, $request->where);
+        $request->session()->flash('search-fields', $fields);
+
+        return view('search', ['columns' => $this->getClientColumns(), 'results' => $results, 'fields' => $fields]);
     }
 
     public function getClientNotifications($sortby = null) {

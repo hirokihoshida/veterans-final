@@ -82,6 +82,8 @@
                 @if ($results->isEmpty())
                     <h3>No Results</h3>
                 @else
+                    <a href="export">Export to CSV</a>
+
                     <table class="table table-striped table-bordered table-hover">
                         <col width="25%">
                         <col width="25%">
