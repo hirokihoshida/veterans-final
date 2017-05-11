@@ -3895,10 +3895,15 @@
     <body>
         <div id="clientlist-header">
             <div class="header" style="position:fixed">
+                <div class="export">
+                    <a class="export-link" href="export">Export To Excel</a>
+                </div>
+                <div class="addclient-link">
+                    <a class="export-link" href="add">Add New Client</a>
+                </div>
                 <h1 class="client-header">Client List</h1>
                 <button class="back-button btn-lg btn-danger" onclick="location.href='/home'" type="button">Back</button>
             </div>
-
         </div>
 
         <table id="example" class="table display" cellspacing="0" width="100%">
@@ -3910,7 +3915,7 @@
             </tr>
             </thead>
             <tbody>
-            @foreach(\App\Client::all() as $client)
+            @foreach(\App\Client::clientList() as $client)
                 <tr>
                     <td>{{ $client->last_name }}</td>
                     <td>{{ $client->first_name }}</td>
@@ -3924,7 +3929,7 @@
                     <td>{{ $client->residence }}</td>
                     <td>{{ $client->drivers_license_status }}</td>
                     <td>{{ $client->employment_status }}</td>
-                    <td>{{ $client->combat_zone_zervice }}</td>
+                    <td>{{ $client->combat_zone_service }}</td>
                     <td>{{ $client->healthcare_id_status }}</td>
                     <td>{{ $client->char_of_service }}</td>
                     <td>{{ $client->comments }}</td>

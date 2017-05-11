@@ -9,10 +9,16 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    //
-    public function homePage() {
-        return view('home', ['user' => Auth::user()]);
+    public function showUpdate() {
+        return view('update', ['client' => null]);
+    }
 
+    public function homePage() {
+        return view('home');
+    }
+
+    public function showReport() {
+        return view('report');
     }
 
     public function logout() {

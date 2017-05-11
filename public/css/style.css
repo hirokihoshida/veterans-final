@@ -114,3 +114,36 @@ thead a {
     width: 70%;
     height: 10%;
 }
+
+.export {
+    position: relative;
+    display: inline-block;
+    left:0;
+    height:10%;
+    top:75%;
+}
+
+.export-link {
+    font-size:20px;
+}
+
+.addclient-link {
+    position: relative;
+    display: inline-block;
+    left:30px;
+    height:10%;
+    top:75%;
+}
+
+#id_age {
+    position:relative;
+    top:50%;
+}
+
+.main-container {
+    position:relative;
+    height:85%;
+    width:80%;
+    left:10%;
+    top:5%;
+}

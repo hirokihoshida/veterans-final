@@ -76,11 +76,10 @@
                         <label for="name">Name</label>
                         <select name="client" required>
                             <option value="">-- Select --</option>
-                            @foreach ($names as $name)
-                                <option value={{ $name->id  }}>{{ $name->name }}</option>
+                            @foreach (\App\Client::clientList() as $client)
+                                <option value={{ $client->id  }}>{{ $client->name }}</option>
                             @endforeach
                         </select>
-                        {{--<input id="form_name" type="text" name="name" class="form-control" placeholder="Please enter your firstname *" required="required" data-error="Firstname is required.">--}}
                         <div class="help-block with-errors"></div>
                     </div>
                 </div>

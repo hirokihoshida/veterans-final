@@ -2,13 +2,41 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Http\Request;
 use App\Client;
 use App\Visit;
 
 class DBController extends Controller
 {
-    public function exportToCSV() {
+    public function updateClient(Client $client) {
+        return view('update', ['client' => $client]);
+    }
+
+    // export client list to CSV
+    public function export() {
+        $clients = Client::all();
+
+        $output = fopen('php://output', 'w') or die("Can't open file");
+        header("Content-Type:application/csv");
+        header('Content-Disposition: attachment; filename="client-list.csv";');
+
+        $fields = Schema::getColumnListing('client');
+        fputcsv($output, $fields);
+        foreach($clients as $client){
+            $result_array = array();
+            foreach ($fields as $field) {
+                array_push($result_array, $client->$field);
+            }
+            fputcsv($output, $result_array);
+        }
+        fpassthru($output);
+        fclose($output) or die("Can't close file");
+
+    }
+
+    // export search results to CSV
+    public function exportSearch() {
         $results = session('search-results');
         $output = fopen('php://output', 'w') or die("Can't open file");
         header("Content-Type:application/csv");
@@ -22,8 +50,6 @@ class DBController extends Controller
         }
         fpassthru($output);
         fclose($output) or die("Can't close file");
-
-        exit(0);
     }
 
     public function getClientList() {
@@ -59,8 +85,7 @@ class DBController extends Controller
     }
 
     public function logVisit() {
-        $names = DB::select("select id, concat(first_name, ' ', last_name) as name from client");
-        return view('logvisit', ['names' => $names, 'saved' => False]);
+        return view('logvisit', ['saved' => False]);
     }
 
     public function loadSearch() {
@@ -154,13 +179,11 @@ order by ";
         $client->disability_status = $request->disability_status;
         $client->senior_citizenship_status = $request->senior_citizenship_status;
         $client->phone_number = $request->phone_number;
-        $client->valid_id_status = $request->valid_id_status;
         $client->income_level = $request->income_level;
         $client->benefits = $request->benefits;
         $client->residence = $request->residence;
         $client->drivers_license_status = $request->drivers_license_status;
         $client->employment_status = $request->employment_status;
-        $client->background = $request->background;
         $client->healthcare_id_status = $request->healthcare_id_status;
         $client->char_of_service = $request->char_of_service;
         $client->combat_zone_service = $request->combat_zone_service;

@@ -47,4 +47,12 @@ Route::post('new-user', 'AdminController@addNewUser');
 
 Route::get('delete-user/{id}', 'AdminController@deleteUser');
 
-Route::get('export', 'DBController@exportToCSV');
+Route::get('export-search', 'DBController@exportSearch');
+
+Route::get('export', 'DBController@export');
+
+Route::get('report', 'HomeController@showReport');
+
+Route::get('update', 'HomeController@showUpdate');
+
+Route::get('update/{client}', 'DBController@updateClient');

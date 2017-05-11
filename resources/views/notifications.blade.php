@@ -62,7 +62,7 @@
                 </thead>
                 <tbody>
                     @foreach($clientlist as $client)
-                        @if ($client->daysSinceLastVisit == null)
+                        @if ($client->daysSinceLastVisit == null && $client->daysSinceLastVisit !== 0)
                             <tr>
                         @elseif ($client->daysSinceLastVisit < 30)
                             <tr class="success">

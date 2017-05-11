@@ -73,7 +73,9 @@
 <body>
 <div class='container'>
     <div class="header">
-        <button class="back-button btn-lg btn-danger" onclick="location.href='/home'" type="button">Back</button>
+        <a href="clientlist">
+            <button class="back-button btn-lg btn-danger" type="button">Back</button>
+        </a>
         <h1 class="client-header" style="margin-bottom: 40px">Add New Client</h1>
     </div>
     <div class='panel panel-primary dialog-panel'>
@@ -124,7 +126,7 @@
                     <div class='col-md-2'>
                         <div class='form-group internal'>
                             <div class='col-md-11'>
-                                <input class='form-control' id='id_age' type='number' name='age' placeholder='Age' type='text'>
+                                <input class='form-control' id='id_age' type='number' name='age' placeholder='Age'>
                             </div>
                         </div>
                     </div>
@@ -189,12 +191,10 @@
                 </div>
 
                 <div class="form-group">
-                    <label class='control-label col-md-2 col-md-offset-2' for='id_slide'>Healthcare ID Status</label>
-                    <div class='col-md-2'>
-                        <div class='form-group internal'>
-                            <div class='col-md-11'>
-                                <input class='form-control' id='id_age' name='healthcare_id_status' placeholder='Status' type='text'>
-                            </div>
+                    <label class='control-label col-md-2 col-md-offset-2' for='id_slide'>Has Healthcare ID</label>
+                    <div class="col-md-2">
+                        <div class="internal">
+                            <input id='id_age' name='healthcare_id_status' placeholder='Status' type='checkbox'>
                         </div>
                     </div>
                 </div>
