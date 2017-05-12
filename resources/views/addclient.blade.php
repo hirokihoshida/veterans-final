@@ -80,10 +80,6 @@
     </div>
     <div class='panel panel-primary dialog-panel'>
 
-
-        {{--<div class='panel-heading'>--}}
-
-        {{--</div>--}}
         <div class='panel-body'>
 
             <div id="validation">
@@ -133,18 +129,18 @@
                 </div>
 
                 <div class='form-group'>
-                    <label class='control-label col-md-2 col-md-offset-2' for='id_equipment'>Branch</label>
+                    <label class='control-label col-md-2 col-md-offset-2' for='branch'>Branch</label>
                     <div class='col-md-8'>
                         <div class='col-md-3'>
                             <div class='form-group internal'>
-                                <select class='form-control' name='branch' id='id_equipment'>
-                                    <option>-- Select --</option>
-                                    <option>Army</option>
-                                    <option>Marines</option>
-                                    <option>Navy</option>
-                                    <option>Air Force</option>
-                                    <option>Coast Guard</option>
-                                    <option>Reserves</option>
+                                <select class='form-control' name='branch' id='branch'>
+                                    <option value="">-- Select --</option>
+                                    <option value="Army">Army</option>
+                                    <option value="Marines">Marines</option>
+                                    <option value="Navy">Navy</option>
+                                    <option value="Air Force">Air Force</option>
+                                    <option value="Coast Guard">Coast Guard</option>
+                                    <option value="Reserves">Reserves</option>
                                 </select>
                             </div>
                         </div>
@@ -194,7 +190,7 @@
                     <label class='control-label col-md-2 col-md-offset-2' for='id_slide'>Has Healthcare ID</label>
                     <div class="col-md-2">
                         <div class="internal">
-                            <input id='id_age' name='healthcare_id_status' placeholder='Status' type='checkbox'>
+                            <input id='id_age' name='healthcare_id_status' placeholder='Status' type='checkbox' value="1">
                         </div>
                     </div>
                 </div>

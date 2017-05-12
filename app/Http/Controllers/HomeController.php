@@ -9,9 +9,7 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function showUpdate() {
-        return view('update', ['client' => null]);
-    }
+    
 
     public function homePage() {
         return view('home');

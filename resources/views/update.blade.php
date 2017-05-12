@@ -24,6 +24,22 @@
         </div>
 
         <div class="main-container">
+            <div id="validation">
+                @if ($saved)
+                    <div id="added">
+                        Client saved successfully.
+                    </div>
+                @endif
+
+                @if (count($errors) > 0)
+                    <div id="display_errors">
+                        @foreach ($errors->all() as $e)
+                            <li>{{ $e }}</li>
+                        @endforeach
+                    </div>
+                @endif
+            </div>
+
             <form class='form-horizontal' role='form' method="post">
                 {{ csrf_field() }}
                 <div class='row'>
@@ -59,9 +75,174 @@
                         </div>
                     </div>
 
+                    <div class="row">
+                        <div class='col-md-3'>
+                            <div class="form-group">
+                                <label for='age'>Age</label>
+                                <input id="age" name="age" class='form-control' type="number" value="{{ $client->age }}">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="branch">Branch</label>
+                                <select class='form-control' name='branch' id='branch'>
+                                    <option value="">-- Select --</option>
+                                    <option value="Army">Army</option>
+                                    <option value="Marines">Marines</option>
+                                    <option value="Navy">Navy</option>
+                                    <option value="Air Force">Air Force</option>
+                                    <option value="Coast Guard">Coast Guard</option>
+                                    <option value="Reserves">Reserves</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for='disability_status'>Disability Status</label>
+                                <input id="disability_status" name="disability_status" class="form-control" type="text" value="{{ $client->disability_status }}">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for='senior_citizenship_status'>Senior Citizen Status</label>
+                                <input id="senior_citizenship_status" name="senior_citizenship_status" class="form-control" type="text" value="{{ $client->senior_citizenship_status }}">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for='email'>Email</label>
+                                <input id="email" name="email" class="form-control" type="text" value="{{ $client->email }}">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for='phone_number'>Phone Number</label>
+                                <input id="phone_number" name="phone_number" class="form-control" type="text" value="{{ $client->phone_number }}">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for='healthcare_id_status'>Has Healthcare ID</label>
+                                <input id="healthcare_id_status" name="healthcare_id_status" class="form-control" type="checkbox" value="{{ $client->healthcare_id_status }}">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for='income_level'>Income Level</label>
+                                <input id="income_level" name="income_level" class="form-control" type="text" value="{{ $client->income_level }}">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for='benefits'>Benefits</label>
+                                <input id="benefits" name="benefits" class="form-control" type="text" value="{{ $client->benefits }}">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for='residence'>Residence</label>
+                                <input id="residence" name="residence" class="form-control" type="text" value="{{ $client->residence }}">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for='drivers_license_status'>Drivers License Status</label>
+                                <input id="drivers_license_status" name="drivers_license_status" class="form-control" type="text" value="{{ $client->drivers_license_status }}">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for='employment_status'>Employment Status</label>
+                                <input id="employment_status" name="employment_status" class="form-control" type="text" value="{{ $client->employment_status }}">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for='background'>Background</label>
+                                <input id="background" name="background" class="form-control" type="text" value="{{ $client->background }}">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for='combat_zone_service'>Combat Zone Service</label>
+                                <input id="combat_zone_service" name="combat_zone_service" class="form-control" type="text" value="{{ $client->combat_zone_service }}">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for='char_of_service'>Character Of Service</label>
+                                <input id="char_of_service" name="char_of_service" class="form-control" type="text" value="{{ $client->char_of_service }}">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for='comments'>Comments</label>
+                                <input id="comments" name="comments" class="form-control" type="text" value="{{ $client->comments }}">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class='row'>
+                        <div class='col-md-3'>
+                            <div class="form-group">
+                                <button class='btn-lg btn-primary' type='submit'>Save Changes</button>
+                            </div>
+                        </div>
+                    </div>
+
                     <script>
                         $(document).ready(function(){
-                            $("#client option[value={{ $client->id }}]").attr("selected", "selected");
+                            $("#client option[value='{{ $client->id }}']").attr("selected", "selected");
+
+                            $("#branch option[value='{{ $client->branch }}']").attr("selected", "selected");
+                            if (parseInt("{{ $client->healthcare_id_status }}"))
+                                $("#healthcare_id_status").attr("checked", "checked");
+
                         });
                     </script>
                 @endif

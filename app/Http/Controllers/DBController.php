@@ -9,8 +9,41 @@ use App\Visit;
 
 class DBController extends Controller
 {
-    public function updateClient(Client $client) {
-        return view('update', ['client' => $client]);
+    public function showUpdate($saved = False) {
+        return view('update', ['client' => null, 'saved' => $saved]);
+    }
+
+    public function updateClient(Request $request, Client $client) {
+        $this->validate($request, [
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'age' => 'integer'
+        ]);
+
+        $client->first_name = $request->first_name;
+        $client->last_name = $request->last_name;
+        $client->age = $request->age;
+        $client->branch = $request->branch;
+        $client->disability_status = $request->disability_status;
+        $client->senior_citizenship_status = $request->senior_citizenship_status;
+        $client->phone_number = $request->phone_number;
+        $client->income_level = $request->income_level;
+        $client->benefits = $request->benefits;
+        $client->residence = $request->residence;
+        $client->drivers_license_status = $request->drivers_license_status;
+        $client->employment_status = $request->employment_status;
+        $client->healthcare_id_status = $request->healthcare_id_status;
+        $client->char_of_service = $request->char_of_service;
+        $client->combat_zone_service = $request->combat_zone_service;
+        $client->comments = $request->comments;
+
+        $client->save();
+
+        return $this->showUpdate(True);
+    }
+
+    public function showUpdateClient(Client $client) {
+        return view('update', ['client' => $client, 'saved' => False]);
     }
 
     // export client list to CSV
@@ -172,10 +205,10 @@ order by ";
         ]);
 
         $client = new Client;
-        $client->last_name = $request->last_name;
         $client->first_name = $request->first_name;
         $client->last_name = $request->last_name;
         $client->age = $request->age;
+        $client->branch = $request->branch;
         $client->disability_status = $request->disability_status;
         $client->senior_citizenship_status = $request->senior_citizenship_status;
         $client->phone_number = $request->phone_number;

@@ -53,6 +53,8 @@ Route::get('export', 'DBController@export');
 
 Route::get('report', 'HomeController@showReport');
 
-Route::get('update', 'HomeController@showUpdate');
+Route::get('update', 'DBController@showUpdate');
 
-Route::get('update/{client}', 'DBController@updateClient');
+Route::get('update/{client}', 'DBController@showUpdateClient');
+
+Route::post('update/{client}', 'DBController@updateClient');
