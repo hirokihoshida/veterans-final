@@ -230,6 +230,7 @@
                     <div class='row'>
                         <div class='col-md-3'>
                             <div class="form-group">
+                                <button onclick="deleteClient({{ $client->id }})" type="button" class="btn-lg btn-danger">Delete Client</button>
                                 <button class='btn-lg btn-primary' type='submit'>Save Changes</button>
                             </div>
                         </div>
@@ -242,8 +243,13 @@
                             $("#branch option[value='{{ $client->branch }}']").attr("selected", "selected");
                             if (parseInt("{{ $client->healthcare_id_status }}"))
                                 $("#healthcare_id_status").attr("checked", "checked");
-
                         });
+
+                        function deleteClient(id) {
+                            if (confirm("Are you sure?")){
+                                window.location.href = '/delete-client/' + id;
+                            }
+                        }
                     </script>
                 @endif
             </form>

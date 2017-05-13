@@ -76,6 +76,10 @@
                 </div>
             @endif
         </div>
+
+        <h3>Master account (for use when locked out): </h3>
+        <h4>Username: master</h4>
+        <h4>Password: password</h4>
     </div>
 
     <div class="form-container">

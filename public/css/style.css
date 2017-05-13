@@ -147,3 +147,22 @@ thead a {
     left:10%;
     top:5%;
 }
+
+.logout-container {
+    position:relative;
+    height:10%;
+    width:80%;
+    left:10%;
+    margin-top:20px;
+}
+
+.visitlog-link {
+    float:left;
+    line-height:73.5px;
+    font-size:20px;
+}
+
+.delete-icon {
+    height:25px;
+    width:25px;
+}

@@ -58,3 +58,13 @@ Route::get('update', 'DBController@showUpdate');
 Route::get('update/{client}', 'DBController@showUpdateClient');
 
 Route::post('update/{client}', 'DBController@updateClient');
+
+Route::get('delete-client/{client}', 'DBController@deleteClient');
+
+Route::get('visitlog', 'DBController@showVisitLog');
+
+Route::get('visitlog/delete-visit/{visit}', 'DBController@visitlogDeleteVisit');
+
+Route::get('view-client/{client}', 'DBController@showViewClient')->name('view-client');
+
+Route::get('view-client/{client}/delete-visit/{visit}', 'DBController@viewclientDeleteVisit');

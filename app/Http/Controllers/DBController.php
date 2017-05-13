@@ -9,6 +9,29 @@ use App\Visit;
 
 class DBController extends Controller
 {
+    public function viewclientDeleteVisit(Client $client, Visit $visit) {
+        $visit->delete();
+        return redirect()->route('view-client', $client);
+    }
+
+    public function showViewClient(Client $client) {
+        return view('view-client', ['client' => $client]);
+    }
+
+    public function visitlogDeleteVisit(Visit $visit) {
+        $visit->delete();
+        return view('visitlog');
+    }
+
+    public function showVisitLog() {
+        return view('visitlog');
+    }
+
+    public function deleteClient(Client $client) {
+        $client->delete();
+        return $this->showUpdate(False);
+    }
+
     public function showUpdate($saved = False) {
         return view('update', ['client' => null, 'saved' => $saved]);
     }
@@ -158,7 +181,7 @@ class DBController extends Controller
     }
 
     public function getClientNotifications($sortby = null) {
-        $query = "select c.last_name, c.first_name, v.date, v.comments, v.count, v.daysSinceLastVisit from 
+        $query = "select c.id as client_id, v.id as visit_id, concat(c.last_name, ', ', c.first_name) as name, v.date, v.comments, v.count, v.daysSinceLastVisit from 
 
 client c left join 
 
@@ -174,14 +197,10 @@ order by ";
             $query = $query . "v.date desc";
         } else if ($sortby == 1) {
             $query = $query . "v.date";
-        } else if ($sortby == 2) {
-            $query = $query . "c.last_name";
-        } else if ($sortby == 3) {
-            $query = $query . "c.last_name desc";
         } else if ($sortby == 4) {
-            $query = $query . "c.first_name";
+            $query = $query . "name";
         } else if ($sortby == 5) {
-            $query = $query . "c.first_name desc";
+            $query = $query . "name desc";
         } else if ($sortby == 6) {
             $query = $query . "v.count desc";
         } else if ($sortby == 7) {

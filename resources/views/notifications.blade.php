@@ -14,29 +14,23 @@
 
     <body>
         <div class="header">
+            <a class="visitlog-link" href="visitlog">View Visit Log</a>
             <button class="back-button btn-lg btn-danger" onclick="location.href='/home'" type="button">Back</button>
             <h1 class="client-header" style="margin-bottom: 40px">Client Notifications</h1>
         </div>
 
         <div class="container table-container">
             <table class="table table-striped table-bordered table-hover">
-                <col width="237.5">
-                <col width="237.5">
-                <col width="237.5">
-                <col width="237.5">
-                <col width="237.5">
-                <col width="237.5">
+                <col width="20%">
+                <col width="20%">
+                <col width="20%">
+                <col width="20%">
+                <col width="20%">
                 <thead>
-                    @if ($sortby == 2)
-                        <th><a href="/notifications/3">Last Name</a></th>
-                    @else
-                        <th><a href="/notifications/2">Last Name</a></th>
-                    @endif
-
                     @if ($sortby == 4)
-                        <th><a href="/notifications/5">First Name</a></th>
+                        <th><a href="/notifications/5">Name</a></th>
                     @else
-                        <th><a href="/notifications/4">First Name</a></th>
+                        <th><a href="/notifications/4">Name</a></th>
                     @endif
 
                     @if ($sortby == null)
@@ -71,8 +65,7 @@
                         @else
                             <tr class="danger">
                         @endif
-                                <td>{{ $client->last_name }}</td>
-                                <td>{{ $client->first_name }}</td>
+                                <td><a href="view-client/{{ $client->client_id }}">{{ $client->name }}</a></td>
                                 <td>{{ substr($client->date, 0, 10) }}</td>
                                 <td>{{ $client->comments }}</td>
                                 <td>{{ $client->daysSinceLastVisit }}</td>

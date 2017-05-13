@@ -3,6 +3,7 @@
     <title>Veterans Services Database</title>
     <meta name="description" content="" />
     <link href="/css/homepage.css" rel="stylesheet" type="text/css" />
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -13,14 +14,9 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-    <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body id="background">
-
-<button class='back-button btn-lg btn-danger' onclick="location.href='/logout'">Logout</button>
-
 
 <div id="tooplate_wrapper">
     <div id="tooplate_header">
@@ -72,17 +68,19 @@
 
             </div>
 
-        </div> <!-- end of content -->
+        </div>
 
         @if (\Auth::user()->admin)
             <div class="admin-container">
                 <a id="admin-tools-link" href="{{ route('admin-tools') }}">Admin Tools</a>
             </div>
         @endif
+    </div>
 
-    </div> <!-- end of main -->
-
-</div> <!-- end of wrapper -->
+    <div class="logout-container">
+        <a class='btn-lg btn-primary back-button' href='logout' role="button">Logout</a>
+    </div>
+</div>
 
 </body>
 </html>
