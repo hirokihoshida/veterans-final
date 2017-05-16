@@ -3901,17 +3901,35 @@
                 <div class="addclient-link">
                     <a class="export-link" href="add">Add New Client</a>
                 </div>
-                <h1 class="client-header">Client List</h1>
-                <button class="back-button btn-lg btn-danger" onclick="location.href='/home'" type="button">Back</button>
+                <h1 class="client-header" style="top:40%">Client List</h1>
+                <button id="clientlist-back" class="btn-lg btn-danger" onclick="location.href='/home'" type="button">Back</button>
             </div>
         </div>
+
+        <div style="width:10%"></div>
 
         <table id="example" class="table display" cellspacing="0" width="100%">
             <thead>
             <tr>
-                @foreach ($columns as $column)
-                    <th>{{ $column->COLUMN_NAME }}</th>
-                @endforeach
+                <th>Last Name</th>
+                <th>First Name</th>
+                <th>Age</th>
+                <th>Branch</th>
+                <th>Disability Status</th>
+                <th>Senior Citizenship</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Character of Service</th>
+                <th>Healthcare ID Status</th>
+                <th>Valid ID</th>
+                <th>Income Level</th>
+                <th>Benefits</th>
+                <th>Address</th>
+                <th>Drivers License</th>
+                <th>Employment Status</th>
+                <th>Background</th>
+                <th>Combat Zone Service</th>
+                <th>Comments</th>
             </tr>
             </thead>
             <tbody>
@@ -3923,15 +3941,18 @@
                     <td>{{ $client->branch }}</td>
                     <td>{{ $client->disability_status }}</td>
                     <td>{{ $client->senior_citizenship_status }}</td>
+                    <td>{{ $client->email }}</td>
                     <td>{{ $client->phone_number }}</td>
+                    <td>{{ $client->character_of_service }}</td>
+                    <td>{{ $client->healthcare_id_status }}</td>
+                    <td>{{ $client->valid_id }}</td>
                     <td>{{ $client->income_level }}</td>
                     <td>{{ $client->benefits }}</td>
-                    <td>{{ $client->residence }}</td>
+                    <td>{{ $client->address }}</td>
                     <td>{{ $client->drivers_license_status }}</td>
                     <td>{{ $client->employment_status }}</td>
+                    <td>{{ $client->background }}</td>
                     <td>{{ $client->combat_zone_service }}</td>
-                    <td>{{ $client->healthcare_id_status }}</td>
-                    <td>{{ $client->char_of_service }}</td>
                     <td>{{ $client->comments }}</td>
                 </tr>
             @endforeach

@@ -112,7 +112,7 @@ thead a {
     display: inline-block;
     left: 15%;
     width: 70%;
-    height: 10%;
+    height: 15%;
 }
 
 .export {
@@ -120,7 +120,7 @@ thead a {
     display: inline-block;
     left:0;
     height:10%;
-    top:75%;
+    top:70%;
 }
 
 .export-link {
@@ -132,7 +132,7 @@ thead a {
     display: inline-block;
     left:30px;
     height:10%;
-    top:75%;
+    top:70%;
 }
 
 #id_age {
@@ -165,4 +165,14 @@ thead a {
 .delete-icon {
     height:25px;
     width:25px;
+}
+
+#clientlist-back {
+    position:relative;
+    left:50%;
+    top:60%;
+}
+
+.dataTables_scrollHead th {
+    font-size:14px;
 }

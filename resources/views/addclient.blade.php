@@ -102,27 +102,27 @@
 
                 {{ csrf_field() }}
                 <div class='form-group'>
-                    <label class='control-label col-md-2 col-md-offset-2' for='id_title'>Name</label>
+                    <label class='control-label col-md-2 col-md-offset-2' for='first_name last_name'>Name</label>
                     <div class='col-md-8'>
                         <div class='col-md-3'>
                             <div class='form-group internal'>
-                                <input class='form-control' id='id_first_name' name='first_name' placeholder='First Name' type='text' required>
+                                <input class='form-control' id='first_name' name='first_name' placeholder='First Name' type='text' required>
                             </div>
                         </div>
                         <div class='col-md-3 indent-small'>
                             <div class='form-group internal'>
-                                <input class='form-control' id='id_last_name' name='last_name' placeholder='Last Name' type='text' required>
+                                <input class='form-control' id='last_name' name='last_name' placeholder='Last Name' type='text' required>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class='form-group'>
-                    <label class='control-label col-md-2 col-md-offset-2' for='id_email'>Age</label>
+                    <label class='control-label col-md-2 col-md-offset-2' for='age'>Age</label>
                     <div class='col-md-2'>
                         <div class='form-group internal'>
                             <div class='col-md-11'>
-                                <input class='form-control' id='id_age' type='number' name='age' placeholder='Age'>
+                                <input class='form-control' id='age' type='number' name='age' placeholder='Age'>
                             </div>
                         </div>
                     </div>
@@ -155,52 +155,73 @@
                                 <input class='form-control' name='disability_status' placeholder='Status' type='text'>
                             </div>
                         </div>
-
                     </div>
                 </div>
 
                 <div class='form-group'>
-                    <label class='control-label col-md-2 col-md-offset-2' for='id_email'>Senior Citizen Status</label>
+                    <label class='control-label col-md-2 col-md-offset-2' for='senior'>Senior Citizen</label>
                     <div class='col-md-2'>
                         <div class='form-group internal'>
                             <div class='col-md-11'>
-                                <input class='form-control' id='id_citizenshipstatus' name='senior_citizenship_status' placeholder='Status' type='text'>
+                                <input class='form-control' id='senior' name='senior_citizenship_status' placeholder='Status' type='text'>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class='form-group'>
-                    <label class='control-label col-md-2 col-md-offset-2' for='id_email'>Contact</label>
+                    <label class='control-label col-md-2 col-md-offset-2' for='email phone_number'>Contact</label>
                     <div class='col-md-6'>
                         <div class='form-group'>
                             <div class='col-md-11'>
-                                <input class='form-control' id='id_email' name='email' placeholder='E-mail' type='text'>
+                                <input class='form-control' id='email' name='email' placeholder='Email' type='text'>
                             </div>
                         </div>
                         <div class='form-group internal'>
                             <div class='col-md-11'>
-                                <input class='form-control' id='id_phone' name='phone_number' placeholder='Phone Number' type='text'>
+                                <input class='form-control' id='phone_number' name='phone_number' placeholder='Phone Number' type='text'>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class='form-group'>
+                    <label class='control-label col-md-2 col-md-offset-2' for='discharge'>Character of Service (Discharge)</label>
+                    <div class='col-md-6'>
+                        <div class='form-group internal'>
+                            <div class='col-md-11'>
+                                <input class='form-control' id="discharge" name='character_of_service' placeholder='Character of Service' type='text'>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class='form-group'>
+                    <label class='control-label col-md-2 col-md-offset-2' for='valid_id'>Valid ID</label>
+                    <div class='col-md-6'>
+                        <div class='form-group internal'>
+                            <div class='col-md-11'>
+                                <input class='form-control' id="valid_id" name='valid_id' placeholder='Status' type='text'>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class='control-label col-md-2 col-md-offset-2' for='id_slide'>Has Healthcare ID</label>
+                    <label class='control-label col-md-2 col-md-offset-2' for='healthcare'>Has Healthcare ID</label>
                     <div class="col-md-2">
                         <div class="internal">
-                            <input id='id_age' name='healthcare_id_status' placeholder='Status' type='checkbox' value="1">
+                            <input id='healthcare' name='healthcare_id_status' placeholder='Status' type='checkbox' value="1">
                         </div>
                     </div>
                 </div>
 
                 <div class='form-group'>
-                    <label class='control-label col-md-2 col-md-offset-2' for='id_email'>Income Level</label>
+                    <label class='control-label col-md-2 col-md-offset-2' for='income_level'>Income Level</label>
                     <div class='col-md-2'>
                         <div class='form-group internal'>
                             <div class='col-md-11'>
-                                <input class='form-control' name='income_level' placeholder='Income Level' type='text'>
+                                <input class='form-control' id='income_level' name='income_level' placeholder='Income Level' type='text'>
                             </div>
                         </div>
                     </div>
@@ -218,44 +239,44 @@
                 </div>
 
                 <div class='form-group'>
-                    <label class='control-label col-md-2 col-md-offset-2' for='id_email'>Residence</label>
+                    <label class='control-label col-md-2 col-md-offset-2' for='address'>Address</label>
                     <div class='col-md-6'>
                         <div class='form-group internal'>
                             <div class='col-md-11'>
-                                <input class='form-control' name='residence' placeholder='Residence' type='text'>
+                                <input class='form-control' name='address' id='address' placeholder='Residence' type='text'>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class='form-group'>
-                    <label class='control-label col-md-2 col-md-offset-2' for='id_email'>Drivers License Status</label>
+                    <label class='control-label col-md-2 col-md-offset-2' for='license'>Drivers License</label>
                     <div class='col-md-2'>
                         <div class='form-group internal'>
                             <div class='col-md-11'>
-                                <input class='form-control' name='drivers_license_status' placeholder='Status' type='text'>
+                                <input class='form-control' id="license" name='drivers_license_status' placeholder='Status' type='text'>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class='form-group'>
-                    <label class='control-label col-md-2 col-md-offset-2' for='id_email'>Employment Status</label>
+                    <label class='control-label col-md-2 col-md-offset-2' for='employment'>Employment Status</label>
                     <div class='col-md-2'>
                         <div class='form-group internal'>
                             <div class='col-md-11'>
-                                <input class='form-control' name='employment_status' placeholder='Status' type='text'>
+                                <input class='form-control' id='employment' name='employment_status' placeholder='Status' type='text'>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class='form-group'>
-                    <label class='control-label col-md-2 col-md-offset-2' for='id_email'>Background</label>
+                    <label class='control-label col-md-2 col-md-offset-2' for='background'>Background</label>
                     <div class='col-md-6'>
                         <div class='form-group internal'>
                             <div class='col-md-11'>
-                                <input class='form-control' name='background' placeholder='Background' type='text'>
+                                <input class='form-control' id="background" name='background' placeholder='Background' type='text'>
                             </div>
                         </div>
                     </div>
@@ -273,20 +294,9 @@
                 </div>
 
                 <div class='form-group'>
-                    <label class='control-label col-md-2 col-md-offset-2' for='id_email'>Character of Service</label>
+                    <label class='control-label col-md-2 col-md-offset-2' for='comments'>Comments</label>
                     <div class='col-md-6'>
-                        <div class='form-group internal'>
-                            <div class='col-md-11'>
-                                <input class='form-control' name='char_of_service' placeholder='Character of Service' type='text'>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class='form-group'>
-                    <label class='control-label col-md-2 col-md-offset-2' for='id_comments'>Comments</label>
-                    <div class='col-md-6'>
-                        <textarea class='form-control' id='id_comments' name='comments' placeholder='Additional comments' rows='3'></textarea>
+                        <textarea class='form-control' id='comments' name='comments' placeholder='Additional comments' rows='3'></textarea>
                     </div>
                 </div>
 
