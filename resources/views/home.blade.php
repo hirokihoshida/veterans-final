@@ -2,7 +2,7 @@
 <head>
     <title>Veterans Services Database</title>
     <meta name="description" content="" />
-    <link href="/css/homepage.css" rel="stylesheet" type="text/css" />
+    <link href="css/homepage.css" rel="stylesheet" type="text/css" />
     <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
     <!-- Latest compiled and minified CSS -->
@@ -28,39 +28,39 @@
         <div id="tooplate_content">
 
             <div class="col_w900">
-                <a href='/clientlist' class="col_allw280 fp_service_box">
+                <a href='clientlist' class="col_allw280 fp_service_box">
                     <div class="con_tit_01">List of Clients</div>
-                    <img src="/images/timeline-list-grid-list-icon.png" alt="Image 15" />
+                    <img src="images/timeline-list-grid-list-icon.png" alt="Image 15" />
                     <p>Table of information and data for all Bergen County Veterans Services clients.</p>
                 </a>
 
-                <a href='/update' class="col_allw280 fp_service_box">
+                <a href='update' class="col_allw280 fp_service_box">
                     <div class="con_tit_01">Update Client Info</div>
-                    <img src="/images/approve_and_update1600.png" alt="Image 08" />
+                    <img src="images/approve_and_update1600.png" alt="Image 08" />
                     <p>Create and add a new client and all of his veteran info to the database.</p>
                 </a>
 
-                <a href='/notifications' class="col_allw280 fp_service_box col_last">
+                <a href='notifications' class="col_allw280 fp_service_box col_last">
                     <div class="con_tit_01">Notifications</div>
-                    <img src="/images/Apps-Notifications-icon.png" alt="Image 16" />
+                    <img src="images/Apps-Notifications-icon.png" alt="Image 16" />
                     <p>View updates for clients with overdue visits.</p>
                 </a>
 
-                <a href='/report' class="col_allw280 fp_service_box">
+                <a href='report' class="col_allw280 fp_service_box">
                     <div class="con_tit_01">Report Generator</div>
-                    <img src="/images/onebit_16.png" alt="Image 16" />
+                    <img src="images/onebit_16.png" alt="Image 16" />
                     <p>Generate statistics reports for presentation.</p>
                 </a>
 
-                <a href='/search' class="col_allw280 fp_service_box">
+                <a href='search' class="col_allw280 fp_service_box">
                     <div class="con_tit_01">Data Search</div>
-                    <img src="/images/search-icon.png" alt="Image 18" />
+                    <img src="images/search-icon.png" alt="Image 18" />
                     <p>Retrieve customized data on veterans from the database.</p>
                 </a>
 
-                <a href='/logvisit' class="col_allw280 fp_service_box col_last">
+                <a href='logvisit' class="col_allw280 fp_service_box col_last">
                     <div class="con_tit_01">Log Visit</div>
-                    <img src="/images/Notepad-512.png" alt="Image 18" />
+                    <img src="images/Notepad-512.png" alt="Image 18" />
                     <p>Log the details of a client visit.</p>
                 </a>
 

@@ -1,6 +1,6 @@
 <html>
     <head>
-        <link href="/css/clientlist.css" rel="stylesheet" type="text/css" />
+        <link href="css/clientlist.css" rel="stylesheet" type="text/css" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -3902,7 +3902,7 @@
                     <a class="export-link" href="add">Add New Client</a>
                 </div>
                 <h1 class="client-header" style="top:40%">Client List</h1>
-                <button id="clientlist-back" class="btn-lg btn-danger" onclick="location.href='/home'" type="button">Back</button>
+                <button id="clientlist-back" class="btn-lg btn-danger" onclick="location.href='home'" type="button">Back</button>
             </div>
         </div>
 
