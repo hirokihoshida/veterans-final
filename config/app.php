@@ -140,7 +140,7 @@ return [
         /*
          * Laravel Framework Service Providers...
          */
-        Arcanedev\LogViewer\LogViewerServiceProvider::class,
+       //Arcanedev\LogViewer\LogViewerServiceProvider::class,
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
         Illuminate\Bus\BusServiceProvider::class,
