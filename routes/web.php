@@ -68,3 +68,5 @@ Route::get('visitlog/delete-visit/{visit}', 'DBController@visitlogDeleteVisit');
 Route::get('view-client/{client}', 'DBController@showViewClient')->name('view-client');
 
 Route::get('view-client/{client}/delete-visit/{visit}', 'DBController@viewclientDeleteVisit');
+
+Route::get('report-generator', 'DBController@getDataReport');

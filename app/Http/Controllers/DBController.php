@@ -247,4 +247,8 @@ order by ";
 
         return view('addclient', ['added' => True]);
     }
+    public function getDataReport(Request $request){
+        //stuff goes here
+        return view('report-generator');
+    }
 }

@@ -46,8 +46,6 @@
                 <th>Combat Zone Service</th>-->
 
         <h3>Choose the fields you would like to generate in the report</h3>
-        <input type="checkbox" id="report" name="first name" value="first_name"> <p>First Name</p>
-        <input type="checkbox" id="report" name="last name" value="last_name"> <p>Last Name</p>
         <input type="checkbox" id="report" name="age" value="age"> <p>Age</p>
         <input type="checkbox" id="report" name="branch" value="branch"> <p>Branch</p>
         <input type="checkbox" id="report" name="disability_status" value="disability_status"> <p>Disability Status</p>
