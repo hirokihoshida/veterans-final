@@ -52,6 +52,12 @@
                     <p>Generate statistics reports for presentation.</p>
                 </a>
 
+                <a href='report-generator' class="col_allw280 fp_service_box">
+                    <div class="con_tit_01">Report Generator new</div>
+                    <img src="images/onebit_16.png" alt="Image 16" />
+                    <p>Generate statistics reports for presentation.</p>
+                </a>
+
                 <a href='search' class="col_allw280 fp_service_box">
                     <div class="con_tit_01">Data Search</div>
                     <img src="images/search-icon.png" alt="Image 18" />

@@ -247,8 +247,70 @@ order by ";
 
         return view('addclient', ['added' => True]);
     }
-    public function getDataReport(Request $request){
-        //stuff goes here
-        return view('report-generator');
+
+    public function getAgeReport(){
+        $age = DB::table('client')
+                    ->select(
+                        DB::raw("age"),
+                        DB::raw("COUNT(age) as occurences")) 
+                    ->orderBy("age")
+                    ->groupBy(DB::raw("age"))
+                    ->get();
+
+        $result[] = ['Age','Number'];
+        foreach ($age as $key => $value) {
+            $result[++$key] = [$value->age, (int)$value->occurences];
+        }
+        return $result;
+    }
+
+    public function getCombatReport(){
+        $combat = DB::table('client')
+                    ->select(
+                        DB::raw("combat_zone_service"),
+                        DB::raw("COUNT(combat_zone_service) as occurences")) 
+                    ->orderBy("combat_zone_service")
+                    ->groupBy(DB::raw("combat_zone_service"))
+                    ->get();
+
+        $result[] = ['combat_zone','Number'];
+        foreach ($combat as $key => $value) {
+            $result[++$key] = [$value->combat_zone_service, (int)$value->occurences];
+        }
+        return $result;
+    }
+
+    public function getDataReport(){
+        //$age = getAgeReport();
+        //$combat = getCombatReport();
+        $agedata = DB::table('client')
+                    ->select(
+                        DB::raw("age"),
+                        DB::raw("COUNT(age) as occurences")) 
+                    ->orderBy("age")
+                    ->groupBy(DB::raw("age"))
+                    ->get();
+
+        $age[] = ['Age','Number'];
+        foreach ($agedata as $key => $value) {
+            $age[++$key] = [$value->age, (int)$value->occurences];
+        }
+
+        $cosdata = DB::table('client')
+                    ->select(
+                        DB::raw("character_of_service"),
+                        DB::raw("COUNT(character_of_service) as occurences")) 
+                    ->orderBy("character_of_service")
+                    ->groupBy(DB::raw("character_of_service"))
+                    ->get();
+
+        $cos[] = ['Character Of Service','Number'];
+        foreach ($cosdata as $key => $value) {
+            $cos[++$key] = [$value->character_of_service, (int)$value->occurences];
+        }
+
+        return view('report-generator')
+                ->with('age',json_encode($age))
+                ->with('cos', json_encode($cos));
     }
 }
