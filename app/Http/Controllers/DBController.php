@@ -264,53 +264,118 @@ order by ";
         return $result;
     }
 
-    public function getCombatReport(){
-        $combat = DB::table('client')
+    public function getCOSReport(){
+        $cosdata = DB::table('client')
+            ->select(
+                DB::raw("character_of_service"),
+                DB::raw("COUNT(character_of_service) as occurences")) 
+            ->orderBy("character_of_service")
+            ->groupBy(DB::raw("character_of_service"))
+            ->get();
+
+        $result[] = ['Character Of Service','Number'];
+        
+        foreach ($cosdata as $key => $value) {
+            $result[++$key] = [$value->character_of_service, (int)$value->occurences];
+        }
+        return $result;
+    }
+
+    public function getDisabilityReport(){
+        $disdata = DB::table('client')
                     ->select(
-                        DB::raw("combat_zone_service"),
-                        DB::raw("COUNT(combat_zone_service) as occurences")) 
-                    ->orderBy("combat_zone_service")
-                    ->groupBy(DB::raw("combat_zone_service"))
+                        DB::raw("disability_status"),
+                        DB::raw("COUNT(disability_status) as occurences")) 
+                    ->orderBy("disability_status")
+                    ->groupBy(DB::raw("disability_status"))
                     ->get();
 
-        $result[] = ['combat_zone','Number'];
-        foreach ($combat as $key => $value) {
-            $result[++$key] = [$value->combat_zone_service, (int)$value->occurences];
+        $result[] = ['Disability Status','Number'];
+        foreach ($disdata as $key => $value) {
+            $result[++$key] = [$value->disability_status, (int)$value->occurences];
+        }
+        return $result;
+    }
+
+    public function getDLReport(){
+        $DLdata = DB::table('client')
+                    ->select(
+                        DB::raw("drivers_license_status"),
+                        DB::raw("COUNT(drivers_license_status) as occurences")) 
+                    ->orderBy("drivers_license_status")
+                    ->groupBy(DB::raw("drivers_license_status"))
+                    ->get();
+
+        $result[] = ['Drivers License Status','Number'];
+        foreach ($DLdata as $key => $value) {
+            $result[++$key] = [$value->drivers_license_status, (int)$value->occurences];
+        }
+        return $result;
+    }
+
+    public function getEmploymentReport(){
+        $employmentdata = DB::table('client')
+                    ->select(
+                        DB::raw("employment_status"),
+                        DB::raw("COUNT(employment_status) as occurences")) 
+                    ->orderBy("employment_status")
+                    ->groupBy(DB::raw("employment_status"))
+                    ->get();
+
+        $result[] = ['Drivers License Status','Number'];
+        foreach ($employmentdata as $key => $value) {
+            $result[++$key] = [$value->employment_status, (int)$value->occurences];
+        }
+        return $result;
+    }
+
+    public function getIncomeReport(){
+        $incomedata = DB::table('client')
+                    ->select(
+                        DB::raw("income_level"),
+                        DB::raw("COUNT(income_level) as occurences")) 
+                    ->orderBy("income_level")
+                    ->groupBy(DB::raw("income_level"))
+                    ->get();
+
+        $result[] = ['Income Level','Number'];
+        foreach ($incomedata as $key => $value) {
+            $result[++$key] = [$value->income_level, (int)$value->occurences];
+        }
+        return $result;
+    }
+    public function getSnrReport(){
+        $snrdata = DB::table('client')
+                    ->select(
+                        DB::raw("senior_citizenship_status"),
+                        DB::raw("COUNT(senior_citizenship_status) as occurences")) 
+                    ->orderBy("senior_citizenship_status")
+                    ->groupBy(DB::raw("senior_citizenship_status"))
+                    ->get();
+
+        $result[] = ['Senior Citizenship Status','Number'];
+        foreach ($snrdata as $key => $value) {
+            $result[++$key] = [$value->senior_citizenship_status, (int)$value->occurences];
         }
         return $result;
     }
 
     public function getDataReport(){
-        //$age = getAgeReport();
-        //$combat = getCombatReport();
-        $agedata = DB::table('client')
-                    ->select(
-                        DB::raw("age"),
-                        DB::raw("COUNT(age) as occurences")) 
-                    ->orderBy("age")
-                    ->groupBy(DB::raw("age"))
-                    ->get();
-
-        $age[] = ['Age','Number'];
-        foreach ($agedata as $key => $value) {
-            $age[++$key] = [$value->age, (int)$value->occurences];
-        }
-
-        $cosdata = DB::table('client')
-                    ->select(
-                        DB::raw("character_of_service"),
-                        DB::raw("COUNT(character_of_service) as occurences")) 
-                    ->orderBy("character_of_service")
-                    ->groupBy(DB::raw("character_of_service"))
-                    ->get();
-
-        $cos[] = ['Character Of Service','Number'];
-        foreach ($cosdata as $key => $value) {
-            $cos[++$key] = [$value->character_of_service, (int)$value->occurences];
-        }
+        $age = DBController::getAgeReport();
+        $cos = DBController::getCOSReport();
+        $dis = DBController::getDisabilityReport();
+        $dl = DBController::getDLReport();
+        $emp = DBController::getEmploymentReport();
+        $inc = DBController::getIncomeReport();
+        $snr = DBController::getSnrReport();
 
         return view('report-generator')
                 ->with('age',json_encode($age))
-                ->with('cos', json_encode($cos));
+                ->with('cos', json_encode($cos))
+                ->with('dis', json_encode($dis))
+                ->with('dl', json_encode($dl))
+                ->with('emp', json_encode($emp))
+                ->with('inc', json_encode($inc))
+                ->with('snr', json_encode($snr));
     }
 }
