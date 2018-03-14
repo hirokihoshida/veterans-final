@@ -131,34 +131,31 @@
                     <td>Comments</td>
                 </tr>
             </thead>
-            <?php
-            while($row = mysqli_fetch_array($result))
-            {
-                echo '
+           <tbody>
+            @foreach(\App\Client::clientList() as $client)
                 <tr>
-                    <td>'.$row["last_name"].' </td>
-                    <td>'.$row["first_name"].' </td>
-                    <td>'.$row["age"].' </td>
-                    <td>'.$row["branch"].' </td>
-                    <td>'.$row["disability_status"].' </td>
-                    <td>'.$row["senior_citizenship_status"].' </td>
-                    <td>'.$row["email"].' </td>
-                    <td>'.$row["phone_number"].' </td>
-                    <td>'.$row["character_of_service"].' </td>
-                    <td>'.$row["healthcare_id_status"].' </td>
-                    <td>'.$row["valid_id"].' </td>
-                    <td>'.$row["income_level"].' </td>
-                    <td>'.$row["benefits"].' </td>
-                    <td>'.$row["address"].' </td>
-                    <td>'.$row["drivers_license_status"].' </td>
-                    <td>'.$row["employment_status"].' </td>
-                    <td>'.$row["background"].' </td>
-                    <td>'.$row["combat_zone_service"].' </td>
-                    <td>'.$row["comments"].' </td>
-                </tr>   
-                ';
-            }
-            ?>
+                    <td>{{ $client->last_name }}</td>
+                    <td>{{ $client->first_name }}</td>
+                    <td>{{ $client->age }}</td>
+                    <td>{{ $client->branch }}</td>
+                    <td>{{ $client->disability_status }}</td>
+                    <td>{{ $client->senior_citizenship_status }}</td>
+                    <td>{{ $client->email }}</td>
+                    <td>{{ $client->phone_number }}</td>
+                    <td>{{ $client->character_of_service }}</td>
+                    <td>{{ $client->healthcare_id_status }}</td>
+                    <td>{{ $client->valid_id }}</td>
+                    <td>{{ $client->income_level }}</td>
+                    <td>{{ $client->benefits }}</td>
+                    <td>{{ $client->address }}</td>
+                    <td>{{ $client->drivers_license_status }}</td>
+                    <td>{{ $client->employment_status }}</td>
+                    <td>{{ $client->background }}</td>
+                    <td>{{ $client->combat_zone_service }}</td>
+                    <td>{{ $client->comments }}</td>
+                </tr>
+            @endforeach
+            </tbody>
         </table>
     </div>
 </div>
