@@ -379,19 +379,19 @@ order by ";
     public function getDataTableAJAX(\Request $request){
         $input = $request->all();
         $filter = $input['filter'];
-        $column = $input['column'];
-        $where = $columns . '=' . $filter;
+        $column = $input['id'];
+        $where = $column . '=' . $filter;
         $data = DB::table('client')
                     ->select(
                         DB::raw("concat(last_name, ', ', first_name) as name"),
                         DB::raw($columns . " as columns"))
                     ->where(DB::raw($where)) 
-                    ->orderBy(DB::raw($columns))
+                    ->orderBy(DB::raw($column))
                     ->get();
 
         $result[] = ['Name','Value'];
         foreach ($data as $key => $value) {
-            $result[++$key] = [$value->name, $value->columns];
+            $result[++$key] = [$value->name, $value->column];
         }
         $response = array(
             'status' =>'success',

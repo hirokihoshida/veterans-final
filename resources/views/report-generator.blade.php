@@ -84,6 +84,7 @@
                     url: "./veterans/public/report-generator/",
                     type: 'POST',
                     dataType: "json",
+                    async: false,
                     data: {filter: filter, id: idChart},
                     success: function(response){
                         console.log("data :" + response);
