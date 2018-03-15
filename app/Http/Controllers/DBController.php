@@ -360,6 +360,47 @@ order by ";
         return $result;
     }
 
+    public function getDataTable($columns){
+        $data = DB::table('client')
+                    ->select(
+                        DB::raw("concat(last_name, ', ', first_name) as name"),
+                        DB::raw($columns . " as columns"))
+                    ->orderBy(DB::raw($columns))
+                    ->get();
+
+        $result[] = ['Name','Value'];
+        foreach ($data as $key => $value) {
+            $result[++$key] = [$value->name, $value->columns];
+        }
+
+        return json_encode($result);
+    }
+
+    public function getDataTableAJAX(\Request $request){
+        $input = $request->all();
+        $filter = $input['filter'];
+        $column = $input['column'];
+        $where = $columns . '=' . $filter;
+        $data = DB::table('client')
+                    ->select(
+                        DB::raw("concat(last_name, ', ', first_name) as name"),
+                        DB::raw($columns . " as columns"))
+                    ->where(DB::raw($where)) 
+                    ->orderBy(DB::raw($columns))
+                    ->get();
+
+        $result[] = ['Name','Value'];
+        foreach ($data as $key => $value) {
+            $result[++$key] = [$value->name, $value->columns];
+        }
+        $response = array(
+            'status' =>'success',
+            'result' => json_encode($result),
+        );
+
+        return \Response::json($response);
+    }
+
     public function getDataReport(){
         $age = DBController::getAgeReport();
         $cos = DBController::getCOSReport();
@@ -377,31 +418,5 @@ order by ";
                 ->with('emp', json_encode($emp))
                 ->with('inc', json_encode($inc))
                 ->with('snr', json_encode($snr));
-    }
-      public function inserttesting(Request $request){
-
-        $client = new Client;
-        $client->first_name = $request->first_name;
-        $client->last_name = $request->last_name;
-        $client->age = $request->age;
-        $client->disability_status = $request->disability_status;
-        $client->senior_citizenship_status = $request->senior_citizenship_status;
-        $client->email = $request->email;
-        $client->phone_number = $request->phone_number;
-        $client->character_of_service = $request->character_of_service;
-        $client->valid_id = $request->valid_id;
-        $client->income_level = $request->income_level;
-        $client->benefits = $request->benefits;
-        $client->address = $request->address;
-        $client->drivers_license_status = $request->drivers_license_status;
-        $client->employment_status = $request->employment_status;
-        $client->background = $request->background;
-        $client->comments = $request->comments;
-        $client->branch = $request->branch;
-        $client->healthcare_id_status = $request->healthcare_id_status;
-        $client->combat_zone_service = $request->combat_zone_service;
-
-        $client->save();
-         return "success";
     }
 }

@@ -70,5 +70,6 @@ Route::get('view-client/{client}', 'DBController@showViewClient')->name('view-cl
 Route::get('view-client/{client}/delete-visit/{visit}', 'DBController@viewclientDeleteVisit');
 
 Route::get('report-generator', 'DBController@getDataReport');
+Route::post('report-generator', 'DBController@getDataReportAJAX');
 
 Route::post('inserttest', 'DBController@inserttesting');
