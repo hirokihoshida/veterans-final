@@ -37,62 +37,67 @@
 
         function getData(id, filter = null){
             if (filter == null){
-                if (id == 'agechart'){
+                if (id == "agechart"){
                     return google.visualization.arrayToDataTable(<?php echo app('app\Http\Controllers\DBController')->getDataTable("age") ?>);
-                } else if (id == 'coschart'){
+                } else if (id == "coschart"){
                     return google.visualization.arrayToDataTable(<?php echo app('app\Http\Controllers\DBController')->getDataTable("character_of_service") ?>);
-                } else if (id == 'disabilitychart'){
+                } else if (id == "disabilitychart"){
                     return google.visualization.arrayToDataTable(<?php echo app('app\Http\Controllers\DBController')->getDataTable("disability_status") ?>);
-                } else if (id == 'dlchart'){
+                } else if (id == "dlchart"){
                     return google.visualization.arrayToDataTable(<?php echo app('app\Http\Controllers\DBController')->getDataTable("drivers_license_status") ?>);
-                } else if (id == 'empchart'){
+                } else if (id == "empchart"){
                     return google.visualization.arrayToDataTable(<?php echo app('app\Http\Controllers\DBController')->getDataTable("employment_status") ?>);
-                } else if (id == 'incchart'){
+                } else if (id == "incchart"){
                     return google.visualization.arrayToDataTable(<?php echo app('app\Http\Controllers\DBController')->getDataTable("income_level") ?>);
-                } else if (id == 'snrchart'){
+                } else if (id == "snrchart"){
                     return google.visualization.arrayToDataTable(<?php echo app('app\Http\Controllers\DBController')->getDataTable("senior_citizenship_status") ?>);
                 }
             } else {
                 var pathname = window.location.pathname;
                 var idChart;
-                if (id == 'agechart'){
+                if (id == "agechart"){
                     idChart= "age";
-                } else if (id == 'coschart'){
+                } else if (id == "coschart"){
                     idChart = "character_of_service";
-                } else if (id == 'disabilitychart'){
+                } else if (id == "disabilitychart"){
                     idChart = "disability_status";
-                } else if (id == 'dlchart'){
+                } else if (id == "dlchart"){
                     idChart = "drivers_license_status";
-                } else if (id == 'empchart'){
+                } else if (id == "empchart"){
                     idChart = "employment_status";
-                } else if (id == 'incchart'){
+                } else if (id == "incchart"){
                     idChart = "income_level";
-                } else if (id == 'snrchart'){
+                } else if (id == "snrchart"){
                     idChart = "senior_citizenship_status";
                 }
 
                 $.ajaxSetup({
                       headers: {
-                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                     "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr('content')
                    }
                 });
 
                 var result = -1;
 
                 console.log("getDataAjax to " + pathname);
+                console.log("filter:" + filter + "\tidChart:" + idChart);
                 var request = $.ajax({
-                    url: "./veterans/public/report-generator/",
-                    type: 'POST',
+                    url: "report-generator",
+                    type: "POST",
                     dataType: "json",
                     async: false,
                     data: {filter: filter, id: idChart},
+                    beforeSend: function(){
+                        console.log("DATA:" + this.data );
+                    },
                     success: function(response){
                         console.log("data :" + response);
                         result = response.result;
                     },
-                    error: function(){
-                        console.log("data was not sent");
-                    }
+                    error: function(jqXHR, textStatus, errorThrown) { // What to do if we fail
+                        console.log(JSON.stringify(jqXHR));
+                        console.log("AJAX error: " + textStatus + ' ERROR THROWN: ' + errorThrown);
+                    },
                 });
                 return result;
             }

@@ -71,6 +71,6 @@ Route::get('view-client/{client}/delete-visit/{visit}', 'DBController@viewclient
 
 Route::get('report-generator', 'DBController@getDataReport');
 
-Route::post('report-generator', 'DBController@getDataReportAJAX');
+Route::post('/report-generator', 'DBController@getDataReportAJAX');
 
 Route::post('inserttest', 'DBController@inserttesting');

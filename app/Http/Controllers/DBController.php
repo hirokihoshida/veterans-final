@@ -377,6 +377,12 @@ order by ";
     }
 
     public function getDataTableAJAX(\Request $request){
+        $response = array(
+          'status' => 'success',
+          'data' => 'test',
+        );
+        return \Response::json($response);
+/*
         $input = $request->all();
         $filter = $input['filter'];
         $column = $input['id'];
@@ -398,7 +404,7 @@ order by ";
             'result' => json_encode($result),
         );
 
-        return \Response::json($response);
+        return \Response::json($response);*/
     }
 
     public function getDataReport(){
