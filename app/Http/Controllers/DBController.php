@@ -379,7 +379,7 @@ order by ";
     public function getDataTableAJAX(\Request $request){
         $response = array(
           'status' => 'success',
-          'data' => 'test',
+          'result' => 'test',
         );
         return \Response::json($response);
 /*
