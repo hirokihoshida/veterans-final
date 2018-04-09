@@ -381,7 +381,8 @@ order by ";
           'status' => 'success',
           'result' => 'test',
         );
-        return \Response::json($response);
+        $result = $request->filter;
+        return response()->json($result);
 /*
         $input = $request->all();
         $filter = $input['filter'];

@@ -83,30 +83,30 @@
 
                 console.log("getDataAjax to " + pathname);
                 console.log("filter:" + filter + "\tidChart:" + idChart);
-                // axios.post('./veterans/public/report-generator/', {filter: filter, id: idChart}) 
-                //     .then(function (response) { console.log("Works" + response.data.result); }) 
-                //     .catch(function(jqXHR, textStatus, errorThrown) { // What to do if we fail
-                //         console.log(JSON.stringify(jqXHR));
-                //         console.log("AJAX error: " + textStatus + ' ERROR THROWN: ' + errorThrown);
-                //     });
-                var request = $.ajax({
-                    url: "./veterans/public/report-generator/",
-                    type: "POST",
-                    dataType: "JSON",
-                    async: false,
-                    data: {filter: filter, id: idChart},
-                    beforeSend: function(){
-                        console.log("DATA:" + this.data );
-                    },
-                    success: function(response){
-                        console.log("data :" + response);
-                        result = response.result;
-                    },
-                    error: function(jqXHR, textStatus, errorThrown) { // What to do if we fail
+                axios.post('report-generator/', {filter: filter, id: idChart}) 
+                    .then(function (response) { console.log("Works" + response.data.result); }) 
+                    .catch(function(jqXHR, textStatus, errorThrown) { // What to do if we fail
                         console.log(JSON.stringify(jqXHR));
                         console.log("AJAX error: " + textStatus + ' ERROR THROWN: ' + errorThrown);
-                    },
-                });
+                    });
+                // var request = $.ajax({
+                //     url: "./veterans/public/report-generator/",
+                //     type: "POST",
+                //     dataType: "JSON",
+                //     async: false,
+                //     data: {filter: filter, id: idChart},
+                //     beforeSend: function(){
+                //         console.log("DATA:" + this.data );
+                //     },
+                //     success: function(response){
+                //         console.log("data :" + response);
+                //         result = response.result;
+                //     },
+                //     error: function(jqXHR, textStatus, errorThrown) { // What to do if we fail
+                //         console.log(JSON.stringify(jqXHR));
+                //         console.log("AJAX error: " + textStatus + ' ERROR THROWN: ' + errorThrown);
+                //     },
+                // });
                 return result;
             }
         }
