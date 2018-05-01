@@ -376,12 +376,16 @@ order by ";
         return json_encode($result);
     }
 
-    public function getDataTableAJAX(\Request $request){
+    public function getDataTableAJAX(Request $request){
+        $this->validate($request, [
+            'filter' => 'required',
+            'id' => 'required',
+        ]);
+        \Log::info('ACCESSED AJAX CONTROLLER METHOD');
         $response = array(
           'status' => 'success',
-          'result' => 'test',
+          'msg' => 'test',
         );
-        $result = $request->filter;
         return response()->json($result);
 /*
         $input = $request->all();

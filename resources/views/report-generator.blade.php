@@ -2,7 +2,7 @@
 <head>
     <title>Generate Report</title>
     <meta name="description" content="" />
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="_token" content="{!! csrf_token() !!}" /> 
     <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
     <link href="css/homepage.css" rel="stylesheet" type="text/css" />
@@ -31,106 +31,61 @@
         var emp = <?php echo $emp; ?>;
         var inc = <?php echo $inc; ?>;
         var snr = <?php echo $snr; ?>;
+        var filtered = false;
+        var previousVal = -1;
+        var currentData = -1;
 
         google.charts.load('current', {'packages':['bar']});
         google.charts.load('current', {'packages':['corechart']});
         google.charts.load('current', {'packages':['table']});
         google.charts.setOnLoadCallback(drawChart);
 
-        function getData(id, filter = null){
-            if (filter == null){
-                if (id == "agechart"){
-                    return google.visualization.arrayToDataTable(<?php echo app('app\Http\Controllers\DBController')->getDataTable("age") ?>);
-                } else if (id == "coschart"){
-                    return google.visualization.arrayToDataTable(<?php echo app('app\Http\Controllers\DBController')->getDataTable("character_of_service") ?>);
-                } else if (id == "disabilitychart"){
-                    return google.visualization.arrayToDataTable(<?php echo app('app\Http\Controllers\DBController')->getDataTable("disability_status") ?>);
-                } else if (id == "dlchart"){
-                    return google.visualization.arrayToDataTable(<?php echo app('app\Http\Controllers\DBController')->getDataTable("drivers_license_status") ?>);
-                } else if (id == "empchart"){
-                    return google.visualization.arrayToDataTable(<?php echo app('app\Http\Controllers\DBController')->getDataTable("employment_status") ?>);
-                } else if (id == "incchart"){
-                    return google.visualization.arrayToDataTable(<?php echo app('app\Http\Controllers\DBController')->getDataTable("income_level") ?>);
-                } else if (id == "snrchart"){
-                    return google.visualization.arrayToDataTable(<?php echo app('app\Http\Controllers\DBController')->getDataTable("senior_citizenship_status") ?>);
-                }
-            } else {
-                var pathname = window.location.pathname;
-                var idChart;
-                if (id == "agechart"){
-                    idChart= "age";
-                } else if (id == "coschart"){
-                    idChart = "character_of_service";
-                } else if (id == "disabilitychart"){
-                    idChart = "disability_status";
-                } else if (id == "dlchart"){
-                    idChart = "drivers_license_status";
-                } else if (id == "empchart"){
-                    idChart = "employment_status";
-                } else if (id == "incchart"){
-                    idChart = "income_level";
-                } else if (id == "snrchart"){
-                    idChart = "senior_citizenship_status";
-                }
-
-                $.ajaxSetup({
-                      headers: {
-                     "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr('content')
-                   }
-                });
-
-                var result = -1;
-
-                console.log("getDataAjax to " + pathname);
-                console.log("filter:" + filter + "\tidChart:" + idChart);
-                axios.post('report-generator/', {filter: filter, id: idChart}) 
-                    .then(function (response) { console.log("Works" + response.data.result); }) 
-                    .catch(function(jqXHR, textStatus, errorThrown) { // What to do if we fail
-                        console.log(JSON.stringify(jqXHR));
-                        console.log("AJAX error: " + textStatus + ' ERROR THROWN: ' + errorThrown);
-                    });
-                // var request = $.ajax({
-                //     url: "./veterans/public/report-generator/",
-                //     type: "POST",
-                //     dataType: "JSON",
-                //     async: false,
-                //     data: {filter: filter, id: idChart},
-                //     beforeSend: function(){
-                //         console.log("DATA:" + this.data );
-                //     },
-                //     success: function(response){
-                //         console.log("data :" + response);
-                //         result = response.result;
-                //     },
-                //     error: function(jqXHR, textStatus, errorThrown) { // What to do if we fail
-                //         console.log(JSON.stringify(jqXHR));
-                //         console.log("AJAX error: " + textStatus + ' ERROR THROWN: ' + errorThrown);
-                //     },
-                // });
-                return result;
-            }
-        }
-
-
         function selectHandler(chart, dataOriginal, id) {
-            console.log("hi");
+            var table = new google.visualization.Table(document.getElementById('table_div'));
             var selectedItem = chart.getSelection()[0];
-            if (selectedItem) {
-                if (selectedItem.column != null){
-                    var value = dataOriginal.getValue(selectedItem.row, selectedItem.column);
+            var newData = [];
+            newData.push(['Name','Value']);
+            if (selectedItem)
+                var value = dataOriginal.getValue(selectedItem.row,0);
+            else
+                var value = -1;
+            
+
+            if (filtered == false && selectedItem){//the table is not filtered and has a selected item
+
+                //console.log(previousVal + "->" + value)
+                if (previousVal == value){//if not filtered & previousval is same then go back to non filtered state
+                    currentData[0] = ['Name','Value'];
+                    table.draw(google.visualization.arrayToDataTable(currentData), {showRowNumber: true});
+                    filtered = false;
+                    previousVal = -1;
+                }else{//if previous value is not the same, then filter data
+                    for (var i = 1; i < currentData.length; ++i){//filter data
+                        var val = currentData[i][1];
+                        //console.log(i+": " + val);
+                        if (value == val){
+                            //console.log(val + "=" + value + " so added");
+                            newData.push(currentData[i]);
+                        }
+                    }
+                    previousVal = value;
+                    filtered = true;
+                    table.draw(google.visualization.arrayToDataTable(newData), {showRowNumber: true});
                 }
-                else{
-                    var value = dataOriginal.getValue(selectedItem.row, 0);
+            }else{
+                if (previousVal != value && value != -1){//if filtered yet the previous value is different
+                    filtered = false;
+                    selectHandler(chart, dataOriginal, id);
+                }else{//if filtered and previous val is same then unfilter
+                    currentData[0] = ['Name','Value'];
+                    table.draw(google.visualization.arrayToDataTable(currentData), {showRowNumber: true});
+                    filtered = false;
+                    previousVal = -1;
                 }
-                console.log("Value:" + value);
-                var data = getData(id, value);
-                if (data == -1){
-                    console.log("ERRROROORRR");
-                }
-                var table = new google.visualization.Table(document.getElementById('table_div'));
-                table.draw(data, {showRowNumber: true});
             }
+
         }
+        
 
         function drawChart() {
             var data1 = google.visualization.arrayToDataTable(age);
@@ -221,37 +176,44 @@
             google.visualization.events.addListener(chart1, 'ready', function () {
                 container1.style.display = 'none';
             });
-            google.visualization.events.addListener(chart1, 'select', function(e) {selectHandler(chart1, data1, 'agechart');});
+            google.visualization.events.addListener(chart1, 'select', function(e) {
+                selectHandler(chart1, data1, 'agechart');});
 
             google.visualization.events.addListener(chart2, 'ready', function () {
                 container2.style.display = 'none';
             });
-            google.visualization.events.addListener(chart2, 'select', function(e) {selectHandler(chart2, data2, 'coschart');});
+            google.visualization.events.addListener(chart2, 'select', function(e) {  
+                selectHandler(chart2, data2, 'coschart');});
 
             google.visualization.events.addListener(chart3, 'ready', function () {
                 container3.style.display = 'none';
             });
-            google.visualization.events.addListener(chart3, 'select', function(e) {selectHandler(chart3, data3, 'disabilitychart');});
+            google.visualization.events.addListener(chart3, 'select', function(e) { 
+                selectHandler(chart3, data3, 'disabilitychart');});
 
             google.visualization.events.addListener(chart4, 'ready', function () {
                 container4.style.display = 'none';
             });
-            google.visualization.events.addListener(chart4, 'select', function(e) {selectHandler(chart4, data4, 'dlchart');});
+            google.visualization.events.addListener(chart4, 'select', function(e) { 
+                selectHandler(chart4, data4, 'dlchart');});
 
             google.visualization.events.addListener(chart5, 'ready', function () {
                 container5.style.display = 'none';
             });
-            google.visualization.events.addListener(chart5, 'select', function(e) {selectHandler(chart5, data5, 'empchart');});
+            google.visualization.events.addListener(chart5, 'select', function(e) { 
+                selectHandler(chart5, data5, 'empchart');});
 
             google.visualization.events.addListener(chart6, 'ready', function () {
                 container6.style.display = 'none';
             });
-            google.visualization.events.addListener(chart6, 'select', function(e) {selectHandler(chart6, data6, 'incchart');});
+            google.visualization.events.addListener(chart6, 'select', function(e) { 
+                selectHandler(chart6, data6, 'incchart');});
 
             google.visualization.events.addListener(chart7, 'ready', function () {
                 container7.style.display = 'none';
             });
-            google.visualization.events.addListener(chart7, 'select', function(e) {selectHandler(chart7, data7, 'snrchart');});
+            google.visualization.events.addListener(chart7, 'select', function(e) { 
+                selectHandler(chart7, data7, 'snrchart');});
 
 
             chart1.draw(data1, options1);
@@ -265,24 +227,30 @@
 
         function drawTable(id){
             if (id == 'agechart'){
-                var data = google.visualization.arrayToDataTable(<?php echo app('app\Http\Controllers\DBController')->getDataTable("age") ?>);
+                var data = <?php echo app('app\Http\Controllers\DBController')->getDataTable("age") ?>;
             } else if (id == 'coschart'){
-                var data = google.visualization.arrayToDataTable(<?php echo app('app\Http\Controllers\DBController')->getDataTable("character_of_service") ?>);
+                var data = <?php echo app('app\Http\Controllers\DBController')->getDataTable("character_of_service") ?>;
             } else if (id == 'disabilitychart'){
-                var data = google.visualization.arrayToDataTable(<?php echo app('app\Http\Controllers\DBController')->getDataTable("disability_status") ?>);
+                var data = <?php echo app('app\Http\Controllers\DBController')->getDataTable("disability_status") ?>;
             } else if (id == 'dlchart'){
-                var data = google.visualization.arrayToDataTable(<?php echo app('app\Http\Controllers\DBController')->getDataTable("drivers_license_status") ?>);
+                var data = <?php echo app('app\Http\Controllers\DBController')->getDataTable("drivers_license_status") ?>;
             } else if (id == 'empchart'){
-                var data = google.visualization.arrayToDataTable(<?php echo app('app\Http\Controllers\DBController')->getDataTable("employment_status") ?>);
+                var data = <?php echo app('app\Http\Controllers\DBController')->getDataTable("employment_status") ?>;
             } else if (id == 'incchart'){
-                var data = google.visualization.arrayToDataTable(<?php echo app('app\Http\Controllers\DBController')->getDataTable("income_level") ?>);
+                var data = <?php echo app('app\Http\Controllers\DBController')->getDataTable("income_level") ?>;
             } else if (id == 'snrchart'){
-                var data = google.visualization.arrayToDataTable(<?php echo app('app\Http\Controllers\DBController')->getDataTable("senior_citizenship_status") ?>);
+                var data = <?php echo app('app\Http\Controllers\DBController')->getDataTable("senior_citizenship_status") ?>;
+            }
+
+            currentData =[];
+            for (var i = 0; i < data.length; i++){
+                if (i != 0)
+                    currentData[i] = data[i].slice();
             }
 
             var table = new google.visualization.Table(document.getElementById('table_div'));
 
-            table.draw(data, {showRowNumber: true});
+            table.draw(google.visualization.arrayToDataTable(data), {showRowNumber: true});
         }
 
 
@@ -296,7 +264,7 @@
                 });
                 tableB.style.display = 'none';
                 table.style.display = "block";
-                drawTable(id,);
+                drawTable(id);
                 x.style.display = "block";
             } else {
                 x.style.display = "none";
@@ -327,7 +295,7 @@
             <div class="table" id="table_div" style="float:right; width: 300px; height: 500px;"></div>
         </div>
 
-        <h3 style="text-align: center;">Choose the fields you would like to generate in the report</h3>
+        <h3 style="text-align: center; margin: auto;">Choose the fields you would like to generate in the report</h3>
         <div class="buttons" style="text-align: center;">
             <button type="button" name="answer" class="md-btn md-btn-raised" onclick="showDiv('agechart', this)">Age</button>
             <button type="button" name="answer" class="md-btn md-btn-raised" onclick="showDiv('coschart', this)">Character of Service</button>
