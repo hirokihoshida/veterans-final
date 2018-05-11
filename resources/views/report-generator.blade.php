@@ -18,10 +18,23 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
 
-    <!--Load the AJAX API-->
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <style type="text/css">
+
+        body {
+            background-color: #eceff1
+
+        }
+    </style>
+
+    <!--Load the GOOGLE CHARTS API-->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <script type="text/javascript">
         
         var age = <?php echo $age; ?>;
@@ -278,35 +291,44 @@
 </head>
 
 <body>
-    <div>
-        <h1 class="title" style="text-align: center;">Report Generator</h1>
-        <div style="width: 1220px; margin: auto">
-            <div class="chart" style="float:left; padding-right:20px;">
-                <div name="chart" id="blank" style="width: 900px; height: 500px;"></div>
-                <div name="chart" id="agechart" style="width: 900px; height: 500px;"></div>
-                <div name="chart" id="coschart" style="width: 900px; height: 500px;"></div>
-                <div name="chart" id="disabilitychart" style="width: 900px; height: 500px;"></div>
-                <div name="chart" id="dlchart" style="width: 900px; height: 500px;"></div>
-                <div name="chart" id="empchart" style="width: 900px; height: 500px;"></div>
-                <div name="chart" id="incchart" style="width: 900px; height: 500px;"></div>
-                <div name="chart" id="snrchart" style="width: 900px; height: 500px;"></div>
+    <div class="navbar-fixed">
+        <nav>
+            <div class="black nav-wrapper">
+                <a href="home" class="brand-logo center blue-grey-text text-lighten-5">Veteran Services</a>
+                <ul class="right">
+                    <li><a href="addclient" class="waves-effect waves-light btn grey"><i class="material-icons left">add</i>Add Client</a></li>
+                </ul>
             </div>
-            <div class="table" id="blankT" style="float:right; width: 300px; height: 500px; display: none;"></div>
-            <div class="table" id="table_div" style="float:right; width: 300px; height: 500px;"></div>
-        </div>
-
-        <h3 style="text-align: center; margin: auto;">Choose the fields you would like to generate in the report</h3>
-        <div class="buttons" style="text-align: center;">
-            <button type="button" name="answer" class="md-btn md-btn-raised" onclick="showDiv('agechart', this)">Age</button>
-            <button type="button" name="answer" class="md-btn md-btn-raised" onclick="showDiv('coschart', this)">Character of Service</button>
-            <button type="button" name="answer" class="md-btn md-btn-raised" onclick="showDiv('disabilitychart', this)">Disability Status</button>
-            <button type="button" name="answer" class="md-btn md-btn-raised" onclick="showDiv('dlchart', this)">Drivers License</button>
-            <button type="button" name="answer" class="md-btn md-btn-raised" onclick="showDiv('empchart', this)">Employment</button>
-            <button type="button" name="answer" class="md-btn md-btn-raised" onclick="showDiv('incchart', this)">Income Level</button>
-            <button type="button" name="answer" class="md-btn md-btn-raised" onclick="showDiv('snrchart', this)">Senior Citizenship</button>
-        </div>
+        </nav>
     </div>
-    <!--<a href="../index.php" class="back">
+
+    <h1 class="title" style="text-align: center;">Report Generator</h1>
+    <div style="width: 1220px; margin: auto">
+        <div class="chart" style="float:left; padding-right:20px;">
+            <div name="chart" id="blank" style="width: 900px; height: 500px;"></div>
+            <div name="chart" id="agechart" style="width: 900px; height: 500px;"></div>
+            <div name="chart" id="coschart" style="width: 900px; height: 500px;"></div>
+            <div name="chart" id="disabilitychart" style="width: 900px; height: 500px;"></div>
+            <div name="chart" id="dlchart" style="width: 900px; height: 500px;"></div>
+            <div name="chart" id="empchart" style="width: 900px; height: 500px;"></div>
+            <div name="chart" id="incchart" style="width: 900px; height: 500px;"></div>
+            <div name="chart" id="snrchart" style="width: 900px; height: 500px;"></div>
+        </div>
+        <div class="table" id="blankT" style="float:right; width: 300px; height: 500px; display: none;"></div>
+        <div class="table" id="table_div" style="float:right; width: 300px; height: 500px;"></div>
+    </div>
+
+    <h3 style="text-align: center; margin: auto; font-size: 25px; line-height: 100%;">Choose the fields you would like to generate in the report</h3>
+    <div class="buttons" style="text-align: center;">
+        <button type="button" name="answer" class="md-btn md-btn-raised" onclick="showDiv('agechart', this)">Age</button>
+        <button type="button" name="answer" class="md-btn md-btn-raised" onclick="showDiv('coschart', this)">Character of Service</button>
+        <button type="button" name="answer" class="md-btn md-btn-raised" onclick="showDiv('disabilitychart', this)">Disability Status</button>
+        <button type="button" name="answer" class="md-btn md-btn-raised" onclick="showDiv('dlchart', this)">Drivers License</button>
+        <button type="button" name="answer" class="md-btn md-btn-raised" onclick="showDiv('empchart', this)">Employment</button>
+        <button type="button" name="answer" class="md-btn md-btn-raised" onclick="showDiv('incchart', this)">Income Level</button>
+        <button type="button" name="answer" class="md-btn md-btn-raised" onclick="showDiv('snrchart', this)">Senior Citizenship</button>
+    </div>
+    <!--<a href="home" class="back">
         <button style="cursor: pointer" id="back">Back</button>
     </a>-->
 </body>
