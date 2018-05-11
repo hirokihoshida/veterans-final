@@ -8,7 +8,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
            <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>  
            <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>            
-           <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css"> 
+           <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
 </head>
 <body>
 <div class = "container">
@@ -16,7 +16,7 @@
     <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#new">New</button>
       <div class="modal fade" id="new" role="dialog">
     <div class="modal-dialog">
-    
+
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
@@ -64,7 +64,7 @@
                 <label>Valid ID</label>
                 <input type="text" name="Valid" placeholder="Status" id="valid_id" class="form-control" />
                 <br/>
-                
+
                 <label>Has Healthcare ID</label>
                 <input type="checkbox" name="Healthcare Id Status" id="healthcare_id_status" class="form-control" />
                 <br/>
@@ -100,7 +100,7 @@
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
-      
+
     </div>
   </div>
 
