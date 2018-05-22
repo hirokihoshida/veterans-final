@@ -52,13 +52,13 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="input-field col s6>
-                    <select class="form-element" name="operator" id="operator">
-                        <option value="=">Of a value equal to</option>
-                        <option value="<">Of a value less than</option>
-                        <option value=">">Of a value greater than</option>
-                    </select>
-                    
+                    <div class="input-field col s6 form-element" name="operator" id="operator">
+                        <select>
+                            <option value="=">Of a value equal to</option>
+                            <option value="<">Of a value less than</option>
+                            <option value=">">Of a value greater than</option>
+                        </select>
+                    </div>
                     <div class="input-field col s6">
                         <input type="text" class="form-control" name="value">
                         <button type="submit" form="search-form" class="waves-effect grey darken-1 waves-light btn">Search</button>
