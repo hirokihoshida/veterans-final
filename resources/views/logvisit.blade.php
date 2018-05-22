@@ -1,16 +1,17 @@
 <html>
 <head>
-    <link rel="stylesheet" href="/css/logvisit.css" type="text/css">
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
 
-    <script
-            src="http://code.jquery.com/jquery-3.2.1.min.js"
-            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    <meta charset="UTF-8">
+    <title>Search</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"/>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -46,10 +47,18 @@
 </head>
 
 <body>
-<div class="header">
-    <button class="back-button btn-lg btn-danger" onclick="location.href='/home'" type="button">Back</button>
-    <h1 class="client-header" style="margin-bottom: 40px">Log Visit</h1>
+<div class="navbar-fixed">
+    <nav>
+        <div class="black nav-wrapper">
+            <a href="home" class="brand-logo center blue-grey-text text-lighten-5">Veteran Services</a>
+            <ul class="right">
+                <li><a href="add" class="waves-effect waves-light btn grey"><i class="material-icons left">add</i>Add
+                        Client</a></li>
+            </ul>
+        </div>
+    </nav>
 </div>
+
 
 <div class="container">
     <form method="post">

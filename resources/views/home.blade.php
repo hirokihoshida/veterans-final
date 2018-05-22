@@ -34,7 +34,7 @@
         <div class="black nav-wrapper">
             <a href="home" class="brand-logo center blue-grey-text text-lighten-5">Veteran Services</a>
             <ul class="right">
-                <li><a href="add" class="waves-effect waves-light btn grey"><i class="material-icons left">add</i>Add Client</a></li>
+                <li><a href="add" class="waves-effect waves-light btn grey">Add Client</a></li>
             </ul>
         </div>
     </nav>
@@ -66,10 +66,10 @@
                         <span class="card-title black-text"><b>Reports</b></span>
                     </div>
                     <div class="card-content">
-                        <p>Generate reports for individual client or entire database.</p>
+                        <p>Generate reports based on various metrics.</p>
                     </div>
                     <div class="card-action">
-                        <a href="report-generator" class="black-text">Group</a>
+                        <a href="report-generator" class="black-text">Report</a>
                     </div>
                 </div>
             </div>
@@ -97,8 +97,7 @@
                         <p>Search the database of clients.</p>
                     </div>
                     <div class="card-action">
-                        <a href="search.php" class="black-text">Basic</a>
-                        <a href="search.php" class="black-text">Advanced</a>
+                        <a href="search" class="black-text">Search</a>
                     </div>
                 </div>
             </div>
