@@ -1,22 +1,13 @@
 <html>
 <head>
-    <title>Veterans Services Database</title>
-    <meta name="description" content="" />
-    <script type="text/javascript" src="{{ URL::asset('js/materialize.min.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('js/index.js') }}"></script>
-    <link href="{{ URL::asset('css/materialize.min.css') }}" rel="stylesheet" type="text/css"  media="screen,projection" />
-    <!--<link href="css/homepage.css" rel="stylesheet" type="text/css" />-->
-    <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>Veteran Services</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"/>
 
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
+    <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <style type="text/css">
 
@@ -25,10 +16,9 @@
 
         }
     </style>
-
-    <link rel="stylesheet" href="css/style.css">
 </head>
-<body id="background">
+
+<body>
 <div class="navbar-fixed">
     <nav>
         <div class="black nav-wrapper">

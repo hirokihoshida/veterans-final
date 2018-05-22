@@ -1,28 +1,7 @@
 <html>
 <head>
-    <title>Generate Report</title>
-    <meta name="description" content=""/>
-    <meta name="_token" content="{!! csrf_token() !!}"/>
-    <script src="http://code.jquery.com/jquery-3.2.1.min.js"
-            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-
-    <link href="css/homepage.css" rel="stylesheet" type="text/css"/>
-    <link href="css/buttons.css" rel="stylesheet" type="text/css"/>
-    <!--   Free Website Template by t o o p l a t e . c o m   -->
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
-          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-            crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/style.css">
-
+    <meta charset="UTF-8">
+    <title>Veteran Services</title>
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
@@ -37,6 +16,21 @@
 
         }
     </style>
+
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"/>
 
     <!--Load the GOOGLE CHARTS API-->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -303,19 +297,27 @@
 </head>
 
 <body>
+
 <div class="navbar-fixed">
     <nav>
         <div class="black nav-wrapper">
             <a href="home" class="brand-logo center blue-grey-text text-lighten-5">Veteran Services</a>
             <ul class="right">
-                <li><a href="add" class="waves-effect waves-light btn grey"><i class="material-icons left">add</i>Add
-                        Client</a></li>
+                <li><a href="add" class="waves-effect waves-light btn grey modal-trigger">Add Client</a></li>
             </ul>
         </div>
     </nav>
 </div>
-
-
+<br>
+<div class="buttons" style="text-align: center;">
+    <a class="btn grey darken-1" onclick="showDiv('agechart', this)">Age</a>
+    <a class="btn grey darken-1" onclick="showDiv('coschart', this)">Character of Service</a>
+    <a class="btn grey darken-1" onclick="showDiv('disabilitychart', this)">Disability Status</a>
+    <a class="btn grey darken-1" onclick="showDiv('dlchart', this)">Drivers License</a>
+    <a class="btn grey darken-1" onclick="showDiv('incchart', this)">Income Level</a>
+    <a class="btn grey darken-1" onclick="showDiv('snrchart', this)">Senior Citizenship</a>
+</div>
+<br>
 <div style="width: 1220px; margin: auto">
     <div class="chart" style="float:left; padding-right:20px;">
         <div name="chart" id="blank" style="width: 900px; height: 500px;"></div>
@@ -331,27 +333,7 @@
     <div class="table" id="table_div" style="float:right; width: 300px; height: 500px;"></div>
 </div>
 
-<h3 style="text-align: center; margin: auto; font-size: 25px; line-height: 100%;">Choose the fields you would like to
-    generate in the report</h3>
-<div class="buttons" style="text-align: center;">
-    <button type="button" name="answer" class="md-btn md-btn-raised" onclick="showDiv('agechart', this)">Age</button>
-    <button type="button" name="answer" class="md-btn md-btn-raised" onclick="showDiv('coschart', this)">Character of
-        Service
-    </button>
-    <button type="button" name="answer" class="md-btn md-btn-raised" onclick="showDiv('disabilitychart', this)">
-        Disability Status
-    </button>
-    <button type="button" name="answer" class="md-btn md-btn-raised" onclick="showDiv('dlchart', this)">Drivers
-        License
-    </button>
-    <button type="button" name="answer" class="md-btn md-btn-raised" onclick="showDiv('empchart', this)">Employment
-    </button>
-    <button type="button" name="answer" class="md-btn md-btn-raised" onclick="showDiv('incchart', this)">Income Level
-    </button>
-    <button type="button" name="answer" class="md-btn md-btn-raised" onclick="showDiv('snrchart', this)">Senior
-        Citizenship
-    </button>
-</div>
+
 <!--<a href="home" class="back">
     <button style="cursor: pointer" id="back">Back</button>
 </a>-->

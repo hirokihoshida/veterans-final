@@ -1,7 +1,6 @@
 <html>
 
 <head>
-    <title>Sample Database</title>
     <meta charset="UTF-8">
     <title>Search</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -35,34 +34,39 @@
 <form method="post" id="search-form">
     <div class="container">
         <div class="section">
+            <form>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <select class="form-element" name="select" id="select" required>
+                            <option value="">Select field...</option>
+                            @foreach ($columns as $column)
+                                <option value={{$column->COLUMN_NAME }}>{{ $column->COLUMN_NAME }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="input-field col s6">
+                        <select class="form-element" name="where" id="select" required>
+                            <option value="">From clients who have...</option>
+                            @foreach ($columns as $column)
+                                <option value={{$column->COLUMN_NAME }}>{{ $column->COLUMN_NAME }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="input-field col s6>
+                    <select class="form-element" name="operator" id="operator">
+                        <option value="=">Of a value equal to</option>
+                        <option value="<">Of a value less than</option>
+                        <option value=">">Of a value greater than</option>
+                    </select>
+                    
+                    <div class="input-field col s6">
+                        <input type="text" class="form-control" name="value">
+                        <button type="submit" form="search-form" class="waves-effect grey darken-1 waves-light btn">Search</button>
+                    </div>
+                    </div>
+                </div>
+            </form>
 
-            <div class="row">
-                <div class="input-field col s3">
-                    <select class="form-element" name="select" id="select" required>
-                        <option value="">Select field...</option>
-                        @foreach ($columns as $column)
-                            <option value={{$column->COLUMN_NAME }}>{{ $column->COLUMN_NAME }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="input-field col s3">
-                    <select class="form-element" name="where" id="select" required>
-                        <option value="">From clients who have...</option>
-                        @foreach ($columns as $column)
-                            <option value={{$column->COLUMN_NAME }}>{{ $column->COLUMN_NAME }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="input-field col s3>
-                    <div class=" internal">
-                <select class="form-element" name="operator" id="operator">
-                    <option value="=">Of a value equal to</option>
-                    <option value="<">Of a value less than</option>
-                    <option value=">">Of a value greater than</option>
-                </select>
-                <input type="text" class="form-control" name="value">
-                    <button type="submit" form="search-form" class="waves-effect waves-light btn">Search</button>
-            </div>
         </div>
     </div>
 </form>
