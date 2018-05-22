@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Sample Database</title>
+    <title>Client List</title>
     <meta charset="UTF-8">
     <title>Search</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">

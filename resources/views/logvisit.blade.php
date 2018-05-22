@@ -2,7 +2,7 @@
 <head>
 
     <meta charset="UTF-8">
-    <title>Search</title>
+    <title>Log Visit</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"/>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
