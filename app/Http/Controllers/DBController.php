@@ -430,4 +430,33 @@ order by ";
                 ->with('inc', json_encode($inc))
                 ->with('snr', json_encode($snr));
     }
+    
+ public function inserttesting(Request $request){
+
+        $client = new Client;
+        $client->first_name = $request->first_name;
+        $client->last_name = $request->last_name;
+        $client->age = $request->age;
+        $client->disability_status = $request->disability_status;
+        $client->senior_citizenship_status = $request->senior_citizenship_status;
+        $client->email = $request->email;
+        $client->phone_number = $request->phone_number;
+        $client->character_of_service = $request->character_of_service;
+        $client->valid_id = $request->valid_id;
+        $client->income_level = $request->income_level;
+        $client->benefits = $request->benefits;
+        $client->address = $request->address;
+        $client->drivers_license_status = $request->drivers_license_status;
+        $client->employment_status = $request->employment_status;
+        $client->background = $request->background;
+        $client->comments = $request->comments;
+        $client->branch = $request->branch;
+        $client->healthcare_id_status = $request->healthcare_id_status;
+        $client->combat_zone_service = $request->combat_zone_service;
+
+        $client->save();
+        return view('clientlist');
+        // return "success";
+    }
+
 }
