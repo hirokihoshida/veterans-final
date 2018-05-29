@@ -1,25 +1,43 @@
 <html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="{{ asset("css/style.css") }}">
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ asset("css/style.css") }}">
 
-        <!-- Optional theme -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-    </head>
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <style type="text/css">
+
+        body {
+            background-color: #eceff1
+
+        }
+    </style>
+
+</head>
+<body>
+    <div class="navbar-fixed">
+        <nav>
+            <div class="black nav-wrapper">
+                <a href="home" class="brand-logo center blue-grey-text text-lighten-5">Veteran Services</a>
+                <ul class="right">
+                    <li><a href="addclient" class="waves-effect waves-light btn grey"><i class="material-icons left">add</i>Add Client</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
     <div class="header">
-        <button class="back-button btn-lg btn-danger" onclick="location.href='/home'" type="button">Back</button>
         <h1 class="client-header" style="margin-bottom: 40px">Admin Tools</h1>
     </div>
 
     <div class="form-container">
-        <form class="form-horizontal" method="post" action="/new-user">
+        <form class="form-horizontal" method="post" action="new-user">
             <h2>Add New User</h2>
             {{ csrf_field() }}
             <div class="form-group">
@@ -60,6 +78,7 @@
             <button type="submit" class="btn btn-default add-button">Add</button>
 
         </form>
+        <br>
 
         <div id="validation">
             @if ($added)
@@ -88,9 +107,10 @@
             @foreach (\Auth::user()->adminUsersList() as $user)
                 <li class="list-group-item">
                     <p class="list-text">{{ $user->username }}</p>
-                    <a href="delete-user/{{ $user->id }}"><img class="delete-user" src="/images/red-minus-hi.png"></a>
+                    <a href="delete-user/{{ $user->id }}"><img class="delete-user" src="images/red-minus-hi.png"></a>
                 </li>
             @endforeach
         </ul>
     </div>
+</body>
 </html>

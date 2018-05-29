@@ -70,8 +70,8 @@
         #image1{
             position: absolute;
             /*left: 37.5%;*/
+            left: 40%;
             margin-top: 60px;
-            left: 42.5%;
             border-radius: 50%;
             width:230px;
             height:230px;
@@ -92,7 +92,7 @@
 </head>
 
 <body>
-<img src="/images/bc.jpeg" alt="Bergen County Seal" id="image1">
+<img src="{{ asset('images/bc.jpeg') }}" alt="Bergen County Seal" id="image1">
 
 <div class="login">
 

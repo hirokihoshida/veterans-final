@@ -87,7 +87,7 @@
                         <p>Search the database of clients.</p>
                     </div>
                     <div class="card-action">
-                        <a href="search" class="black-text">Search</a>
+                        <a href="admin-tools" class="black-text">Admin Tools</a>
                     </div>
                 </div>
             </div>
