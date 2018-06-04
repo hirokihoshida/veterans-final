@@ -46,6 +46,7 @@
                     </div>
                     <div class="card-action">
                         <a href="clientlist" class="black-text">View</a>
+                        <a href="notifications" class="black-text">Notifications</a>
                     </div>
                 </div>
             </div>

@@ -1,7 +1,3 @@
-
-
-
-
 <html>
 <head>
 <title>Sample Database</title>

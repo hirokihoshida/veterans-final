@@ -28,30 +28,30 @@
                 <col width="20%">
                 <thead>
                     @if ($sortby == 4)
-                        <th><a href="/notifications/5">Name</a></th>
+                        <th><a href="notifications/5">Name</a></th>
                     @else
-                        <th><a href="/notifications/4">Name</a></th>
+                        <th><a href="notifications/4">Name</a></th>
                     @endif
 
                     @if ($sortby == null)
-                        <th><a href="/notifications/1">Last Visit</a></th>
+                        <th><a href="notifications/1">Last Visit</a></th>
                     @else
-                        <th><a href="/notifications/">Last Visit</a></th>
+                        <th><a href="notifications/">Last Visit</a></th>
                     @endif
 
                     <th><a>Comments</a></th>
 
                     @if ($sortby == 8)
-                        <th><a href="/notifications/9">Days Since Last Visit</a></th>
+                        <th><a href="notifications/9">Days Since Last Visit</a></th>
                     @else
-                        <th><a href="/notifications/8">Days Since Last Visit</a></th>
+                        <th><a href="notifications/8">Days Since Last Visit</a></th>
                     @endif
 
 
                     @if ($sortby == 6)
-                        <th><a href="/notifications/7">Total Visits Logged</a></th>
+                        <th><a href="notifications/7">Total Visits Logged</a></th>
                     @else
-                        <th><a href="/notifications/6">Total Visits Logged</a></th>
+                        <th><a href="notifications/6">Total Visits Logged</a></th>
                     @endif
                 </thead>
                 <tbody>
