@@ -13,12 +13,12 @@
 
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
     </head>
 
     <body>
         <div class="header">
-            <button class="back-button btn-lg btn-default" onclick="location.href='/notifications'" type="button">Back</button>
+            <button class="back-button btn-lg btn-default" onclick="location.href='notifications'" type="button">Back</button>
             <h1 class="client-header" style="margin-bottom: 40px">Client Visit Log</h1>
         </div>
 

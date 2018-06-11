@@ -4,19 +4,15 @@
     <meta charset="UTF-8">
     <title>Log Visit</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"/>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link type="text/css" rel="stylesheet" href="{{ asset("css/materialize.min.css") }}" media="screen,projection"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset("css/style.css") }}">
 
     <!-- Latest compiled and minified JavaScript -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-            crossorigin="anonymous"></script>
 
     <script>
         function showToday() {
@@ -49,7 +45,6 @@
 </head>
 
 <body>
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/materialize.min.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
 <div class="navbar-fixed">
@@ -91,10 +86,10 @@
                             <br>
 
                             <div class="input-field col s12">
-                                <select name="client">
+                                <select name="client" required>
                                     <option value="">Select Client</option>
                                     @foreach (\App\Client::clientList() as $client)
-                                        <option value={{ $client->id  }}>{{ $client->name }}</option>
+                                        <option value="{{ $client->id  }}">{{ $client->name }}</option>
                                     @endforeach
                                 </select>
                                 <label>Client</label>
@@ -134,11 +129,12 @@
                             <div class="row">
 
                             </div>
+
+                        <div class="card-action">
+                            <input type="submit" class="btn-flat grey-text text-darken-3 btn-success btn-send"></input>
+                        </div>
                         </div>
                     </form>
-                </div>
-                <div class="card-action">
-                    <a type="submit" class="btn-flat grey-text text-darken-3 btn-success btn-send">Save</a>
                 </div>
             </div>
         </div>

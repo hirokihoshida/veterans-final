@@ -1,6 +1,9 @@
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <script src="http://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -15,7 +18,7 @@
     <body>
         <div class="header">
             <a class="visitlog-link" href="visitlog">View Visit Log</a>
-            <button class="back-button btn-lg btn-danger" onclick="location.href='/home'" type="button">Back</button>
+            <button class="back-button btn-lg btn-danger" onclick="location.href='home'" type="button">Back</button>
             <h1 class="client-header" style="margin-bottom: 40px">Client Notifications</h1>
         </div>
 
